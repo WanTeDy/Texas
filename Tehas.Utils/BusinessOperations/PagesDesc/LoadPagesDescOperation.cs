@@ -13,8 +13,8 @@ namespace Tehas.Utils.BusinessOperations.PagesDesc
 
         public LoadPagesDescOperation(string controller, string action)
         {
-            _controller = controller;
-            _action = action;
+            _controller = controller.ToLower();
+            _action = action.ToLower();
             RussianName = "Получение информации страницы";
         }
 

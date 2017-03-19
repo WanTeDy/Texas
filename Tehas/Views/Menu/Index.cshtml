@@ -1,17 +1,19 @@
-﻿<div class="container" id="container">
+﻿@using Tehas.Frontend.Models
+@model MenuModel
+<div class="container" id="container">
     <div class="navigation_string">
         <div class="way">
-            <a href="index.html">Главная</a>
+            <a href="/">Главная</a>
             <pre> </pre>
             <p>></p>
             <pre> </pre>
-            <a href="lazertag.html">Лазертаг Арена</a>
+            @Html.ActionLink("Меню(Доставка)", "index", "menu")
         </div>
     </div>
 </div>
 <div class="information_topic">
     <div class="container" id="container">
-        <div class="h2"><h2>меню(доставка)</h2></div>
+        <div class="h2"><h2>Меню(доставка)</h2></div>
     </div>
     <div class="banner2"></div>
     <div class="container" id="container">
@@ -20,26 +22,36 @@
                 <h2 class="tabset_label">Table of Contents</h2>
                 <ul class="tabset_tabs">
                     <li class="firstchild"><a href="#adminka1" class="preActive active">Меню (Доставка)</a></li>
-                    <li><a class="1" href="#adminka2">Гарячие закуски</a></li>
-                    <li><a class="2" href="#adminka3">Холодные закуски</a></li>
-                    <li><a class="3" href="#adminka4">Салаты</a></li>
-                    <li><a class="4" href="#adminka5">Первые блюда</a></li>
-                    <li><a class="5" href="#adminka6">Пицца</a></li>
-                    <li><a class="6" href="#adminka7">Гарниры</a></li>
-                    <li><a class="7" href="#adminka8">Блюда на мангале</a></li>
-                    <li><a class="8" href="#adminka9">Хлебные изделия</a></li>
-                    <li><a class="9" href="#adminka10">Соусы</a></li>
-                    <li><a class="10" href="#adminka11">Десерты</a></li>
-                    <li><a class="11" href="#adminka12">Холодные напитки</a></li>
-                    <li><a class="12" href="#adminka13">Гарячие напитки</a></li>
-                    <li><a class="13" href="#adminka14">Алкогольные напитки</a></li>
-                    <li><a class="14" href="#adminka15">Блюда на заказ</a></li>
+                    @if (Model.Categories != null && Model.Categories.Count > 0)
+                    {
+                        foreach (var cat in Model.Categories)
+                        {
+                            <li><a class="1" href="~/menu/products/@cat.Id">@cat.RussianName</a></li>
+                        }
+                    }
+                    @*
+                                <li><a class="1" href="#adminka2">Гарячие закуски</a></li>
+                            <li><a class="2" href="#adminka3">Холодные закуски</a></li>
+                        <li><a class="3" href="#adminka4">Салаты</a></li>
+                        <li><a class="4" href="#adminka5">Первые блюда</a></li>
+                        <li><a class="5" href="#adminka6">Пицца</a></li>
+                        <li><a class="6" href="#adminka7">Гарниры</a></li>
+                        <li><a class="7" href="#adminka8">Блюда на мангале</a></li>
+                        <li><a class="8" href="#adminka9">Хлебные изделия</a></li>
+                        <li><a class="9" href="#adminka10">Соусы</a></li>
+                        <li><a class="10" href="#adminka11">Десерты</a></li>
+                        <li><a class="11" href="#adminka12">Холодные напитки</a></li>
+                        <li><a class="12" href="#adminka13">Гарячие напитки</a></li>
+                        <li><a class="13" href="#adminka14">Алкогольные напитки</a></li>
+                        <li><a class="14" href="#adminka15">Блюда на заказ</a></li>*@
                 </ul>
             </div>
 
             <div id="adminka1" class="tabset_content tabset_content_active">
-                <p class="description">text text text text text text text text text text text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text text</p>
+                <p class="description"></p>
             </div>
+
+
             <div id="adminka2" class="tabset_content">
                 <h2 class="tabset_label">Продажа</h2>
                 <div class="h23"><h2>Гарячие закуски</h2> </div>
@@ -264,7 +276,7 @@
             <div id="adminka14" class="tabset_content">
                 <h2 class="tabset_label">adminka</h2>
             </div>
-            
+
         </div>
     </div>
 </div>

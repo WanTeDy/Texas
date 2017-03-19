@@ -4,8 +4,8 @@
 }
 body {
 	margin:0; 
-	padding:0; 
-	/*background-color: #3a0300;#dbb169;*/
+	padding:0;
+	height: cover;
 }
 body a {
 	cursor: pointer;
@@ -526,7 +526,35 @@ body a {
 	margin-bottom: 78px;
 }
 
+#login {
+	
 
+	font-family: Arial;
+	font-size: 18px;
+	font-weight: bold;
+}
+#login input {
+	font-family: Arial;
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: 10px;
+	border:1px solid black;
+	border-radius: 5px;
+
+}
+#login form {
+	margin:0 auto;
+	margin-top:200px;
+	margin-bottom: 300px;
+	padding: 40px;
+	width: 300px;
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border:1px solid black;
+	border-radius: 10px;
+}
 
 
 

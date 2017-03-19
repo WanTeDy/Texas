@@ -18,7 +18,7 @@ namespace Tehas.Utils.DataBase.Products
         /// <summary>
         /// Price for this product
         /// </summary>
-        public Int32 Price { get; set; }
+        public Double Price { get; set; }
         /// <summary>
         /// Discription for this product
         /// </summary>

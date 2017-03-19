@@ -1,0 +1,39 @@
+﻿@using Tehas.Utils.DataBase.PagesDesc;
+@model PageDescription
+<div class="container" id="container">
+    <div class="navigation_string">
+        <div class="way">
+            <a href="/">Главная</a>
+            <pre> </pre>
+            <p>></p>
+            <pre> </pre>
+            @Html.ActionLink("Сауна", "index", "sauna")
+        </div>
+    </div>
+</div>
+<div class="information_topic">
+    <div class="container" id="container">
+        <div class="h2"><h2>Сауна</h2></div>
+    </div>
+    <div class="banner"></div>
+    <div class="container" id="container">
+        <div class="h2"><h2>@Model.Title</h2></div>
+        <p>@Model.Description</p>
+    </div>
+    <div class="container" id="container">
+        <div class="gallery">
+            @if (Model.Images != null && Model.Images.Count > 0)
+            {
+                <ul>
+                    @foreach (var image in Model.Images)
+                    {
+                        <li><a class="two" rel="group" title="Лазертаг Арена" href="@Url.Content(image.Url+image.FileName)"><img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" /></a></li>
+                    }
+                </ul>
+            }
+        </div>
+        <div class="video_youtube1">
+            <iframe width="872" height="522" src="@Model.VideoURL" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>

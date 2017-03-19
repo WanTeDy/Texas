@@ -36,8 +36,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="ImageResizer">
+    <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ImageResizer.4.0.5\lib\net45\ImageResizer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -75,11 +76,35 @@
     <Compile Include="Except\ReHouseException.cs" />
     <Compile Include="Helpers\GenerateHash.cs" />
     <Compile Include="Internet.cs" />
+    <Compile Include="Migrations\201703191943195_InitialCreate.cs" />
+    <Compile Include="Migrations\201703191943195_InitialCreate.Designer.cs">
+      <DependentUpon>201703191943195_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703192008528_image.cs" />
+    <Compile Include="Migrations\201703192008528_image.Designer.cs">
+      <DependentUpon>201703192008528_image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703192213215_images.cs" />
+    <Compile Include="Migrations\201703192213215_images.Designer.cs">
+      <DependentUpon>201703192213215_images.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703191943195_InitialCreate.resx">
+      <DependentUpon>201703191943195_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703192008528_image.resx">
+      <DependentUpon>201703192008528_image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703192213215_images.resx">
+      <DependentUpon>201703192213215_images.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

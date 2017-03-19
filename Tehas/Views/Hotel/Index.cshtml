@@ -1,11 +1,14 @@
-﻿<div class="container" id="container">
+﻿@using Tehas.Utils.DataBase.PagesDesc;
+@model PageDescription
+
+<div class="container" id="container">
     <div class="navigation_string">
         <div class="way">
-            <a href="index.html">Главная</a>
+            <a href="/">Главная</a>
             <pre> </pre>
             <p>></p>
             <pre> </pre>
-            <a href="hotel.html">Гостиница</a>
+            @Html.ActionLink("Гостиница", "index", "hotel")
         </div>
     </div>
 </div>
@@ -15,25 +18,23 @@
     </div>
     <div class="banner1"></div>
     <div class="container" id="container">
-        <div class="h2"><h2>Почему мы ?</h2></div>
-        <p>Лучевые имитаторы для применения в качестве учебных средств для проведения занятий по тактической и огневой подготовке подразделений Вооружённых сил США были разработаны ещё в начале 1960-х гг. Помимо мероприятий боевой подготовки военнослужащих, потребность в такого рода снаряжении существовала и в контексте совершенствования методов контроля уровня коллективной подготовки подразделений и результатов военных учений (так как при использовании в этих целях холостых боеприпасов для прикомандированных к участвующим в учениях подразделениям офицеров-наблюдателей и лиц ответственных за подведение итогов учений не представлялось возможным зафиксировать превосходство той или иной стороны, — оба условных противника могли претендовать на победу в учебном бою, — в этом отношении расход боеприпасов и разного рода пиротехнических средств был призван скорее создать обстановку, приближенную к боевой, нежели дать конкретные результаты учебного боя или военных действий). Один из таких имитаторов для оснащения пехоты, с регистратором и звуковой сигнализацией попаданий, был разработан в военных лабораториях часовой компании Bulova Watch Company, но вместо лазерного использовалось инфракрасное излучение. Индивидуальный комплект состоял из генератора инфракрасного сигнала, крепившегося к индивидуальному оружию (пистолету, штурмовой винтовке или пулемёту), а также блока питания и регистратора, находившихся в контейнере размером с флягу, носившемся на поясном ремне</p>
+        <div class="h2"><h2>@Model.Title</h2></div>
+        <p>@Model.Description</p>
     </div>
     <div class="container" id="container">
         <div class="gallery">
+            @if (Model.Images != null && Model.Images.Count > 0)
+            {
             <ul>
-                <li><a class="two" rel="group" title="Лазертаг Арена" href="~/Content/images/photo1.jpg"><img src="~/Content/images/photo1.jpg" width="272" height="211" /></a></li>
-                <li><a class="two" rel="group" title="Лазертаг Арена" href="~/Content/images/photo2.jpg"><img src="~/Content/images/photo2.jpg" width="272" height="211" /></a></li>
-                <li><a class="two" rel="group" title="Лазертаг Арена" href="~/Content/images/photo3.jpg"><img src="~/Content/images/photo3.jpg" width="272" height="211" /></a></li>
-                <li><a class="two" rel="group" title="Лазертаг Арена" href="~/Content/images/photo1.jpg"><img src="~/Content/images/photo1.jpg" width="272" height="211" /></a></li>
-                <li><a class="two" rel="group" title="Лазертаг Арена" href="~/Content/images/photo2.jpg"><img src="~/Content/images/photo2.jpg" width="272" height="211" /></a></li>
-                <li><a class="two" rel="group" title="Лазертаг Арена" href="~/Content/images/photo3.jpg"><img src="~/Content/images/photo3.jpg" width="272" height="211" /></a></li>
-                <li><a class="two" rel="group" title="Лазертаг Арена" href="~/Content/images/photo1.jpg"><img src="~/Content/images/photo1.jpg" width="272" height="211" /></a></li>
-                <li><a class="two" rel="group" title="Лазертаг Арена" href="~/Content/images/photo2.jpg"><img src="~/Content/images/photo2.jpg" width="272" height="211" /></a></li>
-                <li><a class="two" rel="group" title="Лазертаг Арена" href="~/Content/images/photo3.jpg"><img src="~/Content/images/photo3.jpg" width="272" height="211" /></a></li>
+                @foreach (var image in Model.Images)
+                {
+                    <li><a class="two" rel="group" title="Лазертаг Арена" href="@Url.Content(image.Url+image.FileName)"><img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" /></a></li>
+                }
             </ul>
+            }
         </div>
         <div class="video_youtube1">
-            <iframe width="872" height="522" src="https://www.youtube.com/embed/pP9YV_P6WsM" frameborder="0" allowfullscreen></iframe>
+            <iframe width="872" height="522" src="@Model.VideoURL" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 </div>

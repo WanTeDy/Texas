@@ -1,11 +1,20 @@
-﻿<div class="container" id="container">
+﻿@using Tehas.Frontend.Helpers
+@using Tehas.Frontend.Models
+@{
+    List<CartModel> cart = null;
+    if (Session != null)
+    {
+        cart = Session["Cart"] as List<CartModel>;
+    }
+}
+<div class="container" id="container">
     <div class="navigation_string">
         <div class="way">
-            <a href="index.html">Главная</a>
+            <a href="/">Главная</a>
             <pre> </pre>
             <p>></p>
             <pre> </pre>
-            <a href="cartfood.html">Корзина</a>
+            @Html.ActionLink("Корзина", "index", "cart")
         </div>
     </div>
 </div>
@@ -15,87 +24,51 @@
     </div>
     <div class="container" id="container">
         <div class="list_of_prod">
-            <table>
-                <tr class="head">
-                    <td>Фото</td>
-                    <td>Название</td>
-                    <td>Кол-во</td>
-                    <td>Цена за 1 шт. (грн)</td>
-                    <td>Всего</td>
-                </tr>
-                <tr class="prod">
-                    <td><img src="~/Content/images/cartimg.png" width="71" height="53"></td>
-                    <td>Шашлык из свинины</td>
-                    <td>
-                        <div class="input_"><input type="number" size="3" name="num" min="1" max="10" value="1"></div>
-                    </td>
-                    <td>100</td>
-                    <td>100</td>
-                </tr>
-            </table>
-            <table>
-                <tr class="head">
-                    <td>Фото</td>
-                    <td>Название</td>
-                    <td>Кол-во</td>
-                    <td>Цена за 1 шт. (грн)</td>
-                    <td>Всего</td>
-                </tr>
-                <tr class="prod">
-                    <td><img src="~/Content/images/cartimg.png" width="71" height="53"></td>
-                    <td>Шашлык из свинины</td>
-                    <td>
-                        <div class="input_"><input type="number" size="3" name="num" min="1" max="10" value="1"></div>
-                    </td>
-                    <td>100</td>
-                    <td>100</td>
-                </tr>
-            </table>
-            <table>
-                <tr class="head">
-                    <td>Фото</td>
-                    <td>Название</td>
-                    <td>Кол-во</td>
-                    <td>Цена за 1 шт. (грн)</td>
-                    <td>Всего</td>
-                </tr>
-                <tr class="prod">
-                    <td><img src="~/Content/images/cartimg.png" width="71" height="53"></td>
-                    <td>Шашлык из свинины</td>
-                    <td>
-                        <div class="input_"><input type="number" size="3" name="num" min="1" max="10" value="1"></div>
-                    </td>
-                    <td>100</td>
-                    <td>100</td>
-                </tr>
-            </table>
-            <table>
-                <tr class="head">
-                    <td>Фото</td>
-                    <td>Название</td>
-                    <td>Кол-во</td>
-                    <td>Цена за 1 шт. (грн)</td>
-                    <td>Всего</td>
-                </tr>
-                <tr class="prod">
-                    <td><img src="~/Content/images/cartimg.png" width="71" height="53"></td>
-                    <td>Шашлык из свинины</td>
-                    <td>
-                        <div class="input_"><input type="number" size="3" name="num" min="1" max="10" value="1"></div>
-                    </td>
-                    <td>100</td>
-                    <td>100</td>
-                </tr>
-            </table>
+            @if (cart != null && cart.Count > 0)
+            {
+                 double sum = 0;
+                    foreach (var prod in cart)
+                    {
+                         double total = prod.Product.Price * prod.Quantity;
+                            sum += total;     
 
-            <div class="sum">
-                <table class="sum_table">
-                    <tr class="head">
-                        <td>Всего:</td>
-                        <td>100 грн</td>
-                    </tr>
-                </table>
-            </div>
+                            <table>
+                                <tr class="head">
+                                    <td>Фото</td>
+                                    <td>Название</td>
+                                    <td>Кол-во</td>
+                                    <td>Цена за 1 шт. (грн)</td>
+                                    <td>Всего</td>
+                                </tr>
+                                <tr class="prod">
+                                    <td><img src="~/Content/images/cartimg.png" width="71" height="53"></td> @*@Url.Content(prod.Product.Image.Url + prod.Product.Image.FileName)*@
+                                    <td>@prod.Product.Title</td>
+                                    <td>
+                                        <div class="input_"><input type="number" size="3" name="num" min="0" max="100" value="@prod.Quantity"></div>
+                                    </td>
+                                    <td>@prod.Product.Price</td>
+                                    <td>@total</td>
+                                </tr>
+                            </table>
+                            }
+
+
+                            <div class="sum">
+                                <table class="sum_table">
+                                    <tr class="head">
+                                        <td>Всего:</td>
+                                        <td>@sum грн</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            }
+                            else
+                            {
+                                <div>Корзина пуста!</div>
+                            }
+
+
         </div>
     </div>
 </div>

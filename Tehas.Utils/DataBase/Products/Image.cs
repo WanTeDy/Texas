@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tehas.Utils.DataBase.PagesDesc;
 using Tehas.Utils.DataBase.Security;
 
 namespace Tehas.Utils.DataBase.Products
 {
     public class Image : BaseObj
-    {      
+    {
         /// <summary>
         /// FileName of image
         /// </summary>
@@ -18,5 +19,7 @@ namespace Tehas.Utils.DataBase.Products
         /// Description of image
         /// </summary>
         public String Description { get; set; }
+
+        public virtual List<PageDescription> PageDescriptions { get; set; }
     }
 }

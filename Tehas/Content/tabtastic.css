@@ -471,170 +471,58 @@ input.youtube-video {
 	font-family: Arial;
 	font-size: 16px;
 	margin-top: 2px;
-
 }
 
 
 
 
+.header_admin1 {	
+	width: 600px;
+	border: 1px solid black;
+	margin:0 auto; 
+	margin-top: 20px;
+	margin-bottom: 68px;
+	padding: 10px;
+}
 
+.header_admin1 .add_new {
+	margin-top: 8px;
+}
+.header_admin1 .add_new div {
+	margin-bottom: 5px;
+}
+.header_admin1 .add_photo .photo {
+	display:flex;
+	flex-direction:row;
+}
+.header_admin1 .add_photo  div {
+	margin-bottom: 10px;
+}
+.header_admin1 .add_photo {
+	margin-top: 8px;
+	margin-bottom: 8px;
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+	padding: 10px;
+}
+.header_admin1 .add_photo  img {
+	margin-right: 7px;
+}
+.header_admin1 select.added_select {
+	width: 300px;
+}
 
-/*
+.header_admin1 textarea {
+	width: 600px;
+}
+.header_admin1 input.youtube-video {
+	width: 300px;
+	margin-top:10px;
+}
+.header_admin1 .add_video p.yt {
+	color: black;
+	font-family: Arial;
+	font-size: 16px;
+	margin-top: 2px;
 
-<div id="adminka2" class="tabset_content"> 
-            <h2 class="tabset_label">adminka</h2>
-            
-
-            <div class="headline">              
-        <h2>Добавление нового объявления</h2>
-    </div>
-
-<div class="header_admin">           
-
-                <div class="add_new">
-                        <div class="typeofproperty">
-                            <select class="added_select">
-                                <option>Раздел</option>
-                                  <option>Горячие блюда</option>
-                                  <option>Холодные закуски</option>
-                                  <option>Салаты</option>
-                                  <option>Первые блюда</option>
-                                  <option>Пицца</option>
-                                  <option>Гарниры</option>
-                                  <option>Блюда на мангале</option>
-                                  <option>Хлебные изделия</option>
-                                  <option>Соусы</option>
-                                  <option>Десерты</option>
-                                  <option>Холодные напитки</option>
-                                  <option>Горячие напитки</option>
-                                  <option>Алкогольные напитки</option>
-                                  <option>Блюда на заказ</option>
-                            </select>
-                        </div>                        
-                </div>  
-<div class="add_description>">
-        <form name="test" method="post" action="input1.php">
-                <h3>Название:</h3>
-                <input type="text" size="40" class="_cost_">
-
-                <h3>Точная цена:</h3>
-                <input type="text" size="40" class="_cost_">
-                  
-                <h3>Описание:</h3>
-                <textarea name="comment" cols="20" rows="2"></textarea>                   
-        </form>
-</div>
-
-<div class="add_photo">
-    <div class="photo1">
-            <img src="images/www.jpg" height="50">
-            <form enctype="multipart/form-data" action="№" method="POST">
-                <div class="file_upload">
-                        <input name="f" type="file" class="select_photo">
-                </div>
-                        <input type="submit" value="Сменить фото" class="load_photo">
-            </form>
-    </div>                    
-    <div class="photo2">
-            <img src="images/www.jpg" height="50">
-            <form enctype="multipart/form-data" action="№" method="POST">
-                <div class="file_upload">
-                        <input name="f" type="file" class="select_photo">
-                </div>
-                        <input type="submit" value="Сменить фото" class="load_photo">
-            </form>
-    </div>                    
-    <div class="photo3">
-            <img src="images/www.jpg" height="50">
-            <form enctype="multipart/form-data" action="№" method="POST">
-                <div class="file_upload">
-                        <input name="f" type="file" class="select_photo">
-                </div>
-                        <input type="submit" value="Сменить фото" class="load_photo">
-            </form>
-    </div>
-</div>
-    <div class="add_video">
-            <input type="search" name="input_url" list="url-list" placeholder="Cсылка" class="youtube-video">
-            <p class="yt"> - Введите ссылку на видео с YouTube</p>
-
-    </div>
-    <input type="submit" value="Добавить" class="add_button">
-</div>
-
-
-        </div>*/
-
-
-
-
-
-        /*<div id="adminka2" class="tabset_content"> 
-            <h2 class="tabset_label">adminka</h2>
-            
-
-            <div class="headline">              
-        <h2>Редактирование информации</h2>
-    </div>
-
-<div class="header_admin">           
-
-                <div class="add_new">
-                        <div class="typeofproperty">
-                            <select class="added_select">
-                                <option>Раздел</option>
-                                <option>Лазертаг Арена</option>
-                                <option>Сауна/Гостиница</option>
-                                <option>Кафе/Банкетный зал/Караоке</option>
-                            </select>
-                        </div>                        
-                </div>  
-<div class="add_description>">
-        <form name="test" method="post" action="input1.php">
-                <h3>Заглоловок:</h3>
-                <input type="text" size="40" class="_cost_">
-                  
-                <h3>Описание:</h3>
-                <textarea name="comment" cols="20" rows="2"></textarea>                   
-        </form>
-</div>
-
-<div class="add_photo">
-    <div class="photo1">
-            <img src="images/www.jpg" height="50">
-            <form enctype="multipart/form-data" action="№" method="POST">
-                <div class="file_upload">
-                        <input name="f" type="file" class="select_photo">
-                </div>
-                        <!-- <input type="submit" value="Сменить фото" class="load_photo"> -->
-            </form>
-    </div>                    
-    <div class="photo2">
-            <img src="images/www.jpg" height="50">
-            <form enctype="multipart/form-data" action="№" method="POST">
-                <div class="file_upload">
-                        <input name="f" type="file" class="select_photo">
-                </div>
-                        <!-- <input type="submit" value="Сменить фото" class="load_photo"> -->
-            </form>
-    </div>                    
-    <div class="photo3">
-            <img src="images/www.jpg" height="50">
-            <form enctype="multipart/form-data" action="№" method="POST">
-                <div class="file_upload">
-                        <input name="f" type="file" class="select_photo">
-                </div>
-                        <!-- <input type="submit" value="Сменить фото" class="load_photo"> -->
-            </form>
-    </div>
-</div>
-    <div class="add_video">
-            <input type="search" name="input_url" list="url-list" placeholder="Cсылка" class="youtube-video">
-            <p class="yt"> - Введите ссылку на видео с YouTube</p>
-
-    </div>
-    <input type="submit" value="Добавить" class="add_button">
-</div>
-
-
-        </div>*/
+}

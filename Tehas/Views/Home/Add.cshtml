@@ -1,0 +1,13 @@
+﻿@using Tehas.Utils.DataBase.PagesDesc;
+@model PageDescription
+
+@using (@Html.BeginForm("Add", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.TextBoxFor(m => m.ActionName);
+    @Html.TextBoxFor(m => m.ControllerName);
+    @Html.TextBoxFor(m => m.Description);
+    @Html.TextBoxFor(m => m.Title);
+    @Html.TextBoxFor(m => m.VideoURL);
+    <input type="file" multiple="multiple" accept="image/*" name="images" />
+    <input type="submit" value="OK"/>
+}

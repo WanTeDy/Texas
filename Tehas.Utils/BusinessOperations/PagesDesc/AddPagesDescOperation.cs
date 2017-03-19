@@ -18,47 +18,57 @@ namespace Tehas.Utils.BusinessOperations.PagesDesc
         private List<HttpPostedFileBase> _images { get; set; }
         public PageDescription _pageDescription { get; set; }
 
-        public AddPagesDescOperation(string controller, string action, string description, string title, string videoUrl, List<HttpPostedFileBase> images)
+        public AddPagesDescOperation(string controller, string action, string description, string title, string videoUrl, IEnumerable<HttpPostedFileBase> images)
         {
-            _controller = controller;
-            _action = action;
-            _description = action;
-            _title = action;
-            _videoUrl = action;
-            _images = images;
+            _controller = controller.ToLower();
+            _action = action.ToLower();
+            _description = description;
+            _title = title;
+            _videoUrl = videoUrl;
+            _images = images.ToList();
             RussianName = "Добавление информации о новой странице";
         }
 
         protected override void InTransaction()
         {
-            if (_images != null && _images.Count > 0)
+            List<Image> images = new List<Image>();
+
+            var exists = Context.PageDescriptions.FirstOrDefault(x => x.ControllerName == _controller && x.ActionName == _action && !x.Deleted);
+            if (exists == null)
             {
-                List<Image> images = new List<Image>();
-                foreach (var imageFile in _images)
+                Errors.Add("ActionName", "Страница с таким адресом уже существует!");
+            }
+            else
+            {
+                if (_images != null && _images.Count > 0)
                 {
-                    if (imageFile != null)
+                    foreach (var imageFile in _images)
                     {
-                        var url = String.Format("~/Content/images/pages/{0}/{1}/", _controller, _action);
-
-                        var path = HttpContext.Current.Server.MapPath(url);
-                        imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
-
-                        var filename = imageFile.FileName + "_" + DateTime.Now;
-
-                        ImageBuilder.Current.Build(
-                            new ImageJob(imageFile.InputStream,
-                            path + filename,
-                            new Instructions("maxwidth=1200&maxheight=1200"),
-                            false,
-                            false));
-
-                        var image = new Image
+                        if (imageFile != null)
                         {
-                            FileName = filename,
-                            Url = url,
-                        };
-                        Context.Images.Add(image);
-                        images.Add(image);
+                            var url = String.Format("~/Content/images/pages/{0}/{1}/", _controller, _action);
+
+                            var path = HttpContext.Current.Server.MapPath(url);
+                            imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
+                            int point = imageFile.FileName.LastIndexOf('.');
+                            var ext = imageFile.FileName.Substring(point);
+                            var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime() + ext;
+
+                            ImageBuilder.Current.Build(
+                                new ImageJob(imageFile.InputStream,
+                                path + filename,
+                                new Instructions("maxwidth=1200&maxheight=1200"),
+                                false,
+                                false));
+
+                            var image = new Image
+                            {
+                                FileName = filename,
+                                Url = url,
+                            };
+                            Context.Images.Add(image);
+                            images.Add(image);
+                        }
                     }
                 }
                 PageDescription page = new PageDescription
@@ -70,7 +80,8 @@ namespace Tehas.Utils.BusinessOperations.PagesDesc
                     VideoURL = _videoUrl,
                     Images = images,
                 };
-                _pageDescription = Context.PageDescriptions.FirstOrDefault(x => x.ControllerName == _controller && x.ActionName == _action && !x.Deleted);
+                Context.PageDescriptions.Add(page);
+                Context.SaveChanges();
             }
         }
     }
