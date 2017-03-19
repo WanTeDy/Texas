@@ -1,42 +1,73 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE HTML PUBLIC>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>TEXAC</title>
+    <meta charset="utf-8">
+    <!-- <link rel="shortcut icon" href="~/Content/images/rehousemin.jpg" type="image/jpg"> -->
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/fancybox")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("a.first").fancybox();
+            $("a.two").fancybox();
+            $("a.video").fancybox({ "frameWidth": 560, "frameHeight": 340 });
+            $("a.content").fancybox({ "frameWidth": 600, "frameHeight": 300 });
+        });
+    </script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div class="header">
+        <div class="container" id="container">
+            <!-- <div class="header"> -->
+            <div class="logo">
+                <a href="/" id=""><img src="~/Content/images/logo.png" width="139"></a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+            <div class="navigation">
+                <ol>
+                    <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Лазертаг", "index", "lazertag")</li>
+                    <li>@Html.ActionLink("Меню(Доставка)", "index", "menu")</li>
+                    <li class="sauna">@Html.ActionLink("Сауна", "index", "sauna")</li>
+                    <li>@Html.ActionLink("Кафе//Банкетный зал//Караоке", "index", "cafe")</li>
+                    <li>@Html.ActionLink("Гостиница", "index", "hotel")</li>
+                    <li class="last">@Html.ActionLink("Корзина", "index", "cart")</li>
+                </ol>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
+    @RenderBody()
+
+
+    <div class="footer">
+        <div class="container" id="container">
+            <div id="toTop"></div>
+            <div class="logo2">
+                <a href="/home/index" id=""><img src="~/Content/images/logo.png" width="139"></a>
+            </div>
+            <div class="navigation">
+                <ol>
+                    <li>@Html.ActionLink("Главная", "index", "home")</li>
+                    <li>@Html.ActionLink("Лазертаг", "index", "lazertag")</li>
+                    <li>@Html.ActionLink("Меню(Доставка)", "index", "menu")</li>
+                    <li class="sauna">@Html.ActionLink("Сауна", "index", "sauna")</li>
+                    <li>@Html.ActionLink("Кафе//Банкетный зал//Караоке", "index", "cafe")</li>
+                    <li>@Html.ActionLink("Гостиница", "index", "hotel")</li>
+                    <li class="last">@Html.ActionLink("Корзина", "index", "cart")</li>
+                </ol>
+            </div>
+            <div class="social">
+                <div class="divs"><a href="#" class="fb"></a></div>
+                <div class="divs"><a href="#" class="yt"></a></div>
+                <div class="divs"><a href="#" class="gmail"></a></div>
+                <div class="divs"><a href="#" class="vk"></a></div>
+            </div>
+        </div>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

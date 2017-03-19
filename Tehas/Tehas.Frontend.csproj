@@ -11,7 +11,7 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tehas.Frontend.Frontend</RootNamespace>
+    <RootNamespace>Tehas.Frontend</RootNamespace>
     <AssemblyName>Tehas.Frontend</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
@@ -111,7 +111,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Cabinet\CabinetAreaRegistration.cs" />
+    <Compile Include="Controllers\CafeController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelController.cs" />
+    <Compile Include="Controllers\LazertagController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\SaunaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -120,16 +127,78 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fancybox\fancy_closebox.png" />
+    <Content Include="Content\fancybox\fancy_left.png" />
+    <Content Include="Content\fancybox\fancy_progress.png" />
+    <Content Include="Content\fancybox\fancy_right.png" />
+    <Content Include="Content\fancybox\fancy_shadow_e.png" />
+    <Content Include="Content\fancybox\fancy_shadow_n.png" />
+    <Content Include="Content\fancybox\fancy_shadow_ne.png" />
+    <Content Include="Content\fancybox\fancy_shadow_nw.png" />
+    <Content Include="Content\fancybox\fancy_shadow_s.png" />
+    <Content Include="Content\fancybox\fancy_shadow_se.png" />
+    <Content Include="Content\fancybox\fancy_shadow_sw.png" />
+    <Content Include="Content\fancybox\fancy_shadow_w.png" />
+    <Content Include="Content\fancybox\fancy_title_left.png" />
+    <Content Include="Content\fancybox\fancy_title_main.png" />
+    <Content Include="Content\fancybox\fancy_title_right.png" />
+    <Content Include="Content\images\1element.png" />
+    <Content Include="Content\images\2element.png" />
+    <Content Include="Content\images\3element.png" />
+    <Content Include="Content\images\bg_block2.jpg" />
+    <Content Include="Content\images\bg_header.jpg" />
+    <Content Include="Content\images\bg_hotel.png" />
+    <Content Include="Content\images\bg_list.png" />
+    <Content Include="Content\images\bg_menu.png" />
+    <Content Include="Content\images\cartimg.png" />
+    <Content Include="Content\images\eye.png" />
+    <Content Include="Content\images\fb-g.png" />
+    <Content Include="Content\images\fb.png" />
+    <Content Include="Content\images\footer_bg.jpg" />
+    <Content Include="Content\images\gmail-g.png" />
+    <Content Include="Content\images\gmail.png" />
+    <Content Include="Content\images\gun.png" />
+    <Content Include="Content\images\img1.png" />
+    <Content Include="Content\images\img2.png" />
+    <Content Include="Content\images\img3.png" />
+    <Content Include="Content\images\img4.png" />
+    <Content Include="Content\images\lazertag.png" />
+    <Content Include="Content\images\link.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\min-cart.png" />
+    <Content Include="Content\images\next.png" />
+    <Content Include="Content\images\photo1.jpg" />
+    <Content Include="Content\images\photo2.jpg" />
+    <Content Include="Content\images\photo3.jpg" />
+    <Content Include="Content\images\prev.png" />
+    <Content Include="Content\images\slider1.jpg" />
+    <Content Include="Content\images\slider2.png" />
+    <Content Include="Content\images\slider3.png" />
+    <Content Include="Content\images\streak.png" />
+    <Content Include="Content\images\streak2.png" />
+    <Content Include="Content\images\streak3.png" />
+    <Content Include="Content\images\vk-g.png" />
+    <Content Include="Content\images\vk.png" />
+    <Content Include="Content\images\youtube.png" />
+    <Content Include="Content\images\youtube_hover.png" />
+    <Content Include="Content\jquery.fancybox.css" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\tabtastic.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\decree_art_one.ttf" />
+    <Content Include="Areas\Cabinet\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jcarousellite_1.0.1c5.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.3.2.min.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.fancybox-1.2.1.pack.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -138,6 +207,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <None Include="Views\Home\index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -149,21 +220,29 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Lazertag\Index.cshtml" />
+    <Content Include="Views\Hotel\Index.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Cabinet\Controllers\" />
+    <Folder Include="Areas\Cabinet\Models\" />
+    <Folder Include="Areas\Cabinet\Views\Shared\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Cafe\" />
+    <Folder Include="Views\Sauna\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tehas.Utils\Tehas.Utils.csproj">
+      <Project>{2b69a33e-adb8-4f27-a707-b7ac1068a87d}</Project>
+      <Name>Tehas.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

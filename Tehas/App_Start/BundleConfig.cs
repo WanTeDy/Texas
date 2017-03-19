@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Tehas.Frontend.Frontend
+namespace Tehas.Frontend
 {
     public class BundleConfig
     {
@@ -9,7 +9,15 @@ namespace Tehas.Frontend.Frontend
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-1.3.2.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jcarousellite").Include(
+                        "~/Scripts/jcarousellite_1.0.1c5.js"));
+            
+            bundles.Add(new ScriptBundle("~/bundles/fancybox").Include(
+                        "~/Scripts/jquery.easing.1.3.js",
+                        "~/Scripts/jquery.fancybox-1.2.1.pack.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -24,8 +32,12 @@ namespace Tehas.Frontend.Frontend
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                //"~/Content/bootstrap.css",
+                      "~/Content/style.css",
+                      "~/Content/reset.css",
+                      "~/Content/jquery.fancybox.css",
+                      "~/Content/tabtastic.css"
+                      ));
         }
     }
 }

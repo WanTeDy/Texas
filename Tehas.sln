@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tehas.Frontend", "Tehas\Tehas.Frontend.csproj", "{FA4A5305-DB20-4624-8DD5-06A32FA1A4DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tehas.Utils", "Tehas.Utils\Tehas.Utils.csproj", "{2B69A33E-ADB8-4F27-A707-B7AC1068A87D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FA4A5305-DB20-4624-8DD5-06A32FA1A4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA4A5305-DB20-4624-8DD5-06A32FA1A4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA4A5305-DB20-4624-8DD5-06A32FA1A4DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B69A33E-ADB8-4F27-A707-B7AC1068A87D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B69A33E-ADB8-4F27-A707-B7AC1068A87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B69A33E-ADB8-4F27-A707-B7AC1068A87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B69A33E-ADB8-4F27-A707-B7AC1068A87D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
