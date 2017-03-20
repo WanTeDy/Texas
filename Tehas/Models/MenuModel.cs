@@ -9,6 +9,7 @@ namespace Tehas.Frontend.Models
     public class MenuModel
     {        
         public List<Category> Categories { get; set; }        
+        public List<Product> Products { get; set; }        
         public PageDescription PageDescription { get; set; }
     }
 }

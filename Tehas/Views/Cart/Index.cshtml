@@ -1,11 +1,15 @@
-﻿@using Tehas.Frontend.Helpers
-@using Tehas.Frontend.Models
+﻿@using Tehas.Frontend.Models
+@using Tehas.Utils.Helpers
+@model EmailModel
 @{
-    List<CartModel> cart = null;
-    if (Session != null)
+    List<CartProductsModel> cart = null;
+    if (!ViewBag.NoElements)
     {
-        cart = Session["Cart"] as List<CartModel>;
+        cart = ViewBag.Products as List<CartProductsModel>;
     }
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/addtocart")
 }
 <div class="container" id="container">
     <div class="navigation_string">
@@ -26,49 +30,72 @@
         <div class="list_of_prod">
             @if (cart != null && cart.Count > 0)
             {
-                 double sum = 0;
-                    foreach (var prod in cart)
+                double sum = 0;
+                foreach (var prod in cart)
+                {
+                    double total = prod.Product.Price * prod.Quantity;
+                    sum += total;
+
+                    <table>
+                        <tr class="head">
+                            <td>Фото</td>
+                            <td>Название</td>
+                            <td>Кол-во</td>
+                            <td>Цена за 1 шт. (грн)</td>
+                            <td>Всего</td>
+                        </tr>
+                        <tr class="prod">
+                            <td><img src="~/Content/images/cartimg.png" width="71" height="53"></td> @*@Url.Content(prod.Product.Image.Url + prod.Product.Image.FileName)*@
+                            <td>@prod.Product.Title</td>
+                            <td>
+                                <div class="input_"><input id="quantity_@prod.Product.Id" onblur="changequantity(@prod.Product.Id);" type="number" size="3" name="num" min="0" max="100" value="@prod.Quantity"></div>
+                            </td>
+                            <td>@prod.Product.Price</td>
+                            <td>@total</td>
+                        </tr>
+                    </table>
+                }
+
+
+                <div class="sum">
+                    <table class="sum_table">
+                        <tr class="head">
+                            <td>Всего:</td>
+                            <td>@sum грн</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="form_order">
+                    @using (Ajax.BeginForm("index", "cart", null, new { @Id = "application" }))
                     {
-                         double total = prod.Product.Price * prod.Quantity;
-                            sum += total;     
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <h3>Имя</h3>
+                        @Html.TextBoxFor(x => x.Name, new { @placeholder = "Введите Ваше имя", @id = "applicationName" })
+                        <h3>Email</h3>
+                        @Html.TextBoxFor(x => x.Email, new { @placeholder = "Введите Ваш Email", @id = "applicationEmail" })
+                        <h3>Телефон</h3>
+                        @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Введите Ваш телефон", @id = "applicationTelephone" })
 
-                            <table>
-                                <tr class="head">
-                                    <td>Фото</td>
-                                    <td>Название</td>
-                                    <td>Кол-во</td>
-                                    <td>Цена за 1 шт. (грн)</td>
-                                    <td>Всего</td>
-                                </tr>
-                                <tr class="prod">
-                                    <td><img src="~/Content/images/cartimg.png" width="71" height="53"></td> @*@Url.Content(prod.Product.Image.Url + prod.Product.Image.FileName)*@
-                                    <td>@prod.Product.Title</td>
-                                    <td>
-                                        <div class="input_"><input type="number" size="3" name="num" min="0" max="100" value="@prod.Quantity"></div>
-                                    </td>
-                                    <td>@prod.Product.Price</td>
-                                    <td>@total</td>
-                                </tr>
-                            </table>
-                            }
+                        <h3>Комментарий к заказу</h3>
+                        <p>@Html.TextAreaFor(x => x.Message, new { @placeholder = "Введите Ваше сообщение", @id = "applicationText", @rows = "5", @cols = "45" })</p>
 
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(x => x.Banket)
+                            <label class="check" for="checkbox">Банкет</label>
+                            @Html.CheckBoxFor(x => x.Delivery)
+                            <label class="check" for="checkbox">Доставка</label>
+                        </div>
+                        <button class="applicationButton" type="submit" form="application">Заказать</button>
+                    }
+                </div>
 
-                            <div class="sum">
-                                <table class="sum_table">
-                                    <tr class="head">
-                                        <td>Всего:</td>
-                                        <td>@sum грн</td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            }
-                            else
-                            {
-                                <div>Корзина пуста!</div>
-                            }
-
-
+            }
+            else
+            {
+                <div>Корзина пуста!</div>
+            }
         </div>
     </div>
 </div>

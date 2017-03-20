@@ -34,7 +34,7 @@ namespace Tehas.Utils.BusinessOperations.PagesDesc
             List<Image> images = new List<Image>();
 
             var exists = Context.PageDescriptions.FirstOrDefault(x => x.ControllerName == _controller && x.ActionName == _action && !x.Deleted);
-            if (exists == null)
+            if (exists != null)
             {
                 Errors.Add("ActionName", "Страница с таким адресом уже существует!");
             }

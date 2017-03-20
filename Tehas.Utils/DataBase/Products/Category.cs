@@ -15,6 +15,6 @@ namespace Tehas.Utils.DataBase.Products
         public String RussianName { get; set; }        
 
         public virtual Category Parent { get; set; }
-        public virtual List<Product> Adverts { get; set; }  
+        public virtual List<Product> Products { get; set; }  
     }
 }

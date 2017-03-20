@@ -60,6 +60,8 @@
     <Compile Include="BusinessOperations\HashHelper.cs" />
     <Compile Include="BusinessOperations\PagesDesc\AddPagesDescOperation.cs" />
     <Compile Include="BusinessOperations\PagesDesc\LoadPagesDescOperation.cs" />
+    <Compile Include="BusinessOperations\Products\LoadProductsOperation.cs" />
+    <Compile Include="BusinessOperations\Products\LoadCategoriesOperation.cs" />
     <Compile Include="BusinessOperations\Users\AddUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\LoadUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\UpdateUserOperation.cs" />
@@ -74,6 +76,8 @@
     <Compile Include="DataBase\Security\User.cs" />
     <Compile Include="Except\ActionNotAllowedException.cs" />
     <Compile Include="Except\ReHouseException.cs" />
+    <Compile Include="Helpers\CartProductsModel.cs" />
+    <Compile Include="Helpers\CartModel.cs" />
     <Compile Include="Helpers\GenerateHash.cs" />
     <Compile Include="Internet.cs" />
     <Compile Include="Migrations\201703191943195_InitialCreate.cs" />

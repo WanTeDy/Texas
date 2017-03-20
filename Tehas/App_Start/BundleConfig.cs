@@ -9,7 +9,13 @@ namespace Tehas.Frontend
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-1.3.2.min.js"));
+                        "~/Scripts/jquery.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/addtocart").Include(
+                        "~/Scripts/addtocart.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/lazyload").Include(
+                        "~/Scripts/lazyload.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jcarousellite").Include(
                         "~/Scripts/jcarousellite_1.0.1c5.js"));

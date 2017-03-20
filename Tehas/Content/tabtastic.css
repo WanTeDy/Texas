@@ -157,7 +157,7 @@ li.firstchild1 {
 }
 
 #data-container .data-item .appendix {
-	display: flex;
+	display: none;
 	flex-direction: row;
 	align-items: flex-start;
 
@@ -526,3 +526,7 @@ input.youtube-video {
 	margin-top: 2px;
 
 }
+
+
+
+

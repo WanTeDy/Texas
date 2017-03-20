@@ -1,5 +1,9 @@
 ﻿@using Tehas.Frontend.Models
 @model MenuModel
+@section Scripts {
+    @Scripts.Render("~/bundles/lazyload")
+    @Scripts.Render("~/bundles/addtocart")
+}
 <div class="container" id="container">
     <div class="navigation_string">
         <div class="way">
@@ -21,263 +25,51 @@
             <div class="list_">
                 <h2 class="tabset_label">Table of Contents</h2>
                 <ul class="tabset_tabs">
-                    <li class="firstchild"><a href="#adminka1" class="preActive active">Меню (Доставка)</a></li>
+                    @if (Model.Products != null && Model.Products.Count > 0)
+                    {
+                        <li class="firstchild"><a href="/menu" class="1">Меню (Доставка)</a></li>
+                    }
+                    else
+                    {
+                        <li class="firstchild"><a href="/menu" class="preActive active">Меню (Доставка)</a></li>
+                    }
                     @if (Model.Categories != null && Model.Categories.Count > 0)
                     {
                         foreach (var cat in Model.Categories)
                         {
-                            <li><a class="1" href="~/menu/products/@cat.Id">@cat.RussianName</a></li>
+                            if (Model.Products != null && Model.Products.Count > 0 && cat.Id == Model.Products.First().CategoryId)
+                            {
+                                <li><a class="preActive active" href="~/menu/products/@cat.Id">@cat.RussianName</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="1" href="~/menu/products/@cat.Id">@cat.RussianName</a></li>
+                            }
                         }
                     }
-                    @*
-                                <li><a class="1" href="#adminka2">Гарячие закуски</a></li>
-                            <li><a class="2" href="#adminka3">Холодные закуски</a></li>
-                        <li><a class="3" href="#adminka4">Салаты</a></li>
-                        <li><a class="4" href="#adminka5">Первые блюда</a></li>
-                        <li><a class="5" href="#adminka6">Пицца</a></li>
-                        <li><a class="6" href="#adminka7">Гарниры</a></li>
-                        <li><a class="7" href="#adminka8">Блюда на мангале</a></li>
-                        <li><a class="8" href="#adminka9">Хлебные изделия</a></li>
-                        <li><a class="9" href="#adminka10">Соусы</a></li>
-                        <li><a class="10" href="#adminka11">Десерты</a></li>
-                        <li><a class="11" href="#adminka12">Холодные напитки</a></li>
-                        <li><a class="12" href="#adminka13">Гарячие напитки</a></li>
-                        <li><a class="13" href="#adminka14">Алкогольные напитки</a></li>
-                        <li><a class="14" href="#adminka15">Блюда на заказ</a></li>*@
                 </ul>
             </div>
+            @if (Model.Products != null && Model.Products.Count > 0)
+            {
+                <div id="adminka2" class="tabset_content tabset_content_active">
+                    <h2 class="tabset_label">Продажа</h2>
+                    <div class="h23"><h2>@Model.Products.First().Category.RussianName</h2></div>
 
-            <div id="adminka1" class="tabset_content tabset_content_active">
-                <p class="description"></p>
-            </div>
-
-
-            <div id="adminka2" class="tabset_content">
-                <h2 class="tabset_label">Продажа</h2>
-                <div class="h23"><h2>Гарячие закуски</h2> </div>
-                <h2 class="tabset_label">adminka</h2>
-
-                <div id="data-container">
-                    <div class="data-item">
-                        <p>Шашлык из свинины</p>
-                        <img src="~/Content/images/img1.png" width="236" height="161">
-                        <div class="hover">
-                            <p>Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусныiugy iuhgu uhuhu uhuhuhuhuhй</p>
-                            <p>Цена:</p>
-                            <p>120грн (100гр)</p>
-                        </div>
-                        <div class="order"><a href="#">Заказать</a></div>
-                        <!-- <div class="appendix">
-                            <div class="input_"><p><input type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
-                            <div class="min-cart"><a href="#"><img src="~/Content/images/min-cart.png"></a></div>
-                        </div> -->
+                    <div id="data-container">
+                        @Html.Partial("Menu/_listOfProducts", Model.Products);
                     </div>
-                    <div class="data-item">
-                        <p>Шашлык из свинины</p>
-                        <img src="~/Content/images/img1.png" width="236" height="161">
-                        <div class="hover">
-                            <p>Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный</p>
-                            <p>Цена:</p>
-                            <p>120грн (100гр)</p>
-                        </div>
-                        <div class="order"><a href="#">Заказать</a></div>
-                        <!-- <div class="appendix">
-                            <div class="input_"><p><input type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
-                            <div class="min-cart"><a href="#"><img src="~/Content/images/min-cart.png"></a></div>
-                        </div> -->
+                    <div id="button-more" onclick="lazyload(@Model.Products.First().CategoryId);">
+                        <a>Показать еще</a>
                     </div>
-                    <div class="data-item">
-                        <p>Шашлык из свинины</p>
-                        <img src="~/Content/images/img1.png" width="236" height="161">
-                        <div class="hover">
-                            <p>Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный</p>
-                            <p>Цена:</p>
-                            <p>120грн (100гр)</p>
-                        </div>
-                        <div class="order"><a href="#">Заказать</a></div>
-                        <!-- <div class="appendix">
-                            <div class="input_"><p><input type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
-                            <div class="min-cart"><a href="#"><img src="~/Content/images/min-cart.png"></a></div>
-                        </div> -->
-                    </div>
-                    <div class="data-item">
-                        <p>Шашлык из свинины</p>
-                        <img src="~/Content/images/img1.png" width="236" height="161">
-                        <div class="hover">
-                            <p>Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный</p>
-                            <p>Цена:</p>
-                            <p>120грн (100гр)</p>
-                        </div>
-                        <div class="order"><a href="#">Заказать</a></div>
-                        <div class="appendix">
-                            <div class="input_"><p><input type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
-                            <div class="min-cart"><a href="#"><img src="~/Content/images/min-cart.png"></a></div>
-                        </div>
-                    </div>
-                    <div class="data-item">
-                        <p>Шашлык из свинины</p>
-                        <img src="~/Content/images/img1.png" width="236" height="161">
-                        <div class="hover">
-                            <p>Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный</p>
-                            <p>Цена:</p>
-                            <p>120грн (100гр)</p>
-                        </div>
-                        <div class="order"><a href="#">Заказать</a></div>
-                        <div class="appendix">
-                            <div class="input_"><p><input type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
-                            <div class="min-cart"><a href="#"><img src="~/Content/images/min-cart.png"></a></div>
-                        </div>
-                    </div>
-                    <div class="data-item">
-                        <p>Шашлык из свинины</p>
-                        <img src="~/Content/images/img1.png" width="236" height="161">
-                        <div class="hover">
-                            <p>Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный</p>
-                            <p>Цена:</p>
-                            <p>120грн (100гр)</p>
-                        </div>
-                        <div class="order"><a href="#">Заказать</a></div>
-                        <div class="appendix">
-                            <div class="input_"><p><input type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
-                            <div class="min-cart"><a href="#"><img src="~/Content/images/min-cart.png"></a></div>
-                        </div>
-                    </div>
-
-                    <div class="data-item">
-                        <p>Шашлык из свинины</p>
-                        <img src="~/Content/images/img1.png" width="236" height="161">
-                        <div class="hover">
-                            <p>Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный</p>
-                            <p>Цена:</p>
-                            <p>120грн (100гр)</p>
-                        </div>
-                        <div class="order"><a href="#">Заказать</a></div>
-                        <div class="appendix">
-                            <div class="input_"><p><input type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
-                            <div class="min-cart"><a href="#"><img src="~/Content/images/min-cart.png"></a></div>
-                        </div>
-                    </div>
-                    <div class="data-item">
-                        <p>Шашлык из свинины</p>
-                        <img src="~/Content/images/img1.png" width="236" height="161">
-                        <div class="hover">
-                            <p>Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный</p>
-                            <p>Цена:</p>
-                            <p>120грн (100гр)</p>
-                        </div>
-                        <div class="order"><a href="#">Заказать</a></div>
-                        <div class="appendix">
-                            <div class="input_"><p><input type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
-                            <div class="min-cart"><a href="#"><img src="~/Content/images/min-cart.png"></a></div>
-                        </div>
-                    </div>
-
-                    <div class="data-item">
-                        <p>Шашлык из свинины</p>
-                        <img src="~/Content/images/img1.png" width="236" height="161">
-                        <div class="hover">
-                            <p>Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный</p>
-                            <p>Цена:</p>
-                            <p>120грн (100гр)</p>
-                        </div>
-                        <div class="order"><a href="#">Заказать</a></div>
-                        <div class="appendix">
-                            <div class="input_"><p><input type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
-                            <div class="min-cart"><a href="#"><img src="~/Content/images/min-cart.png"></a></div>
-                        </div>
-                    </div>
-
-                    <div class="data-item">
-                        <p>Шашлык из свинины</p>
-                        <img src="~/Content/images/img1.png" width="236" height="161">
-                        <div class="hover">
-                            <p>Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный</p>
-                            <p>Цена:</p>
-                            <p>120грн (100гр)</p>
-                        </div>
-                        <div class="order"><a href="#">Заказать</a></div>
-                        <div class="appendix">
-                            <div class="input_"><p><input type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
-                            <div class="min-cart"><a href="#"><img src="~/Content/images/min-cart.png"></a></div>
-                        </div>
-                    </div>
-
-                    <div class="data-item">
-                        <p>Шашлык из свинины</p>
-                        <img src="~/Content/images/img1.png" width="236" height="161">
-                        <div class="hover">
-                            <p>Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный</p>
-                            <p>Цена:</p>
-                            <p>120грн (100гр)</p>
-                        </div>
-                        <div class="order"><a href="#">Заказать</a></div>
-                        <div class="appendix">
-                            <div class="input_"><p><input type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
-                            <div class="min-cart"><a href="#"><img src="~/Content/images/min-cart.png"></a></div>
-                        </div>
-                    </div>
-
-                    <div class="data-item">
-                        <p>Шашлык из свинины</p>
-                        <img src="~/Content/images/img1.png" width="236" height="161">
-                        <div class="hover">
-                            <p>Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный Шашлык из свинины вкусный</p>
-                            <p>Цена:</p>
-                            <p>120грн (100гр)</p>
-                        </div>
-                        <div class="order"><a href="#">Заказать</a></div>
-                        <div class="appendix">
-                            <div class="input_"><p><input type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
-                            <div class="min-cart"><a href="#"><img src="~/Content/images/min-cart.png"></a></div>
-                        </div>
-                    </div>
+                    <div id="loading-div"></div>
                 </div>
-                <div id="button-more" onclick="lazyload.load()">
-                    <a href="">Показать еще</a>
+            }
+            else
+            {
+                <div id="adminka1" class="tabset_content tabset_content_active">
+                    <p class="description">@Model.PageDescription.Description</p>
                 </div>
-                <div id="loading-div"></div>
-            </div>
-
-            <div id="adminka3" class="tabset_content">
-                <h2 class="tabset_label">adminka</h2>
-            </div>
-            <div id="adminka4" class="tabset_content">
-                <h2 class="tabset_label">adminka</h2>
-            </div>
-            <div id="adminka5" class="tabset_content">
-                <h2 class="tabset_label">adminka</h2>
-            </div>
-
-            <div id="adminka6" class="tabset_content">
-                <h2 class="tabset_label">adminka</h2>
-            </div>
-            <div id="adminka7" class="tabset_content">
-                <h2 class="tabset_label">Продажа</h2>
-            </div>
-            <div id="adminka8" class="tabset_content">
-                <h2 class="tabset_label">adminka</h2>
-            </div>
-            <div id="adminka9" class="tabset_content">
-                <h2 class="tabset_label">adminka</h2>
-            </div>
-            <div id="adminka10" class="tabset_content">
-                <h2 class="tabset_label">adminka</h2>
-            </div>
-
-            <div id="adminka11" class="tabset_content">
-                <h2 class="tabset_label">adminka</h2>
-            </div>
-            <div id="adminka12" class="tabset_content">
-                <h2 class="tabset_label">adminka</h2>
-            </div>
-            <div id="adminka13" class="tabset_content">
-                <h2 class="tabset_label">adminka</h2>
-            </div>
-            <div id="adminka14" class="tabset_content">
-                <h2 class="tabset_label">adminka</h2>
-            </div>
-
+            }
         </div>
     </div>
 </div>
-
