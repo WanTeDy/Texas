@@ -2,6 +2,7 @@
 using System.Text;
 using System.Web;
 using Newtonsoft.Json;
+using Tehas.Frontend.Models;
 
 namespace Tehas.Frontend.Helpers
 {
@@ -20,7 +21,12 @@ namespace Tehas.Frontend.Helpers
         }
         public static void Session(string key, object value)
         {
-            HttpContext.Current.Session.Timeout = 360;
+            HttpContext.Current.Session.Timeout = 180;
+            HttpContext.Current.Session[key] = value;
+        }
+        public static void Session(string key, object value, int minutes)
+        {
+            HttpContext.Current.Session.Timeout = minutes;
             HttpContext.Current.Session[key] = value;
         }
         public static void SessionRemoveAll()
@@ -46,5 +52,12 @@ namespace Tehas.Frontend.Helpers
             var res = JsonConvert.DeserializeObject(p, responseType);
             return res;
         }
+        public static bool IsAuthentificated()
+        {
+            var obj = HttpContext.Current.Session["User"] as SessionModel;
+            if (obj != null)
+                return true;
+            return false;
+        } 
     }
 }

@@ -11,16 +11,14 @@ namespace Tehas.Utils.BusinessOperations.Users
         private String _login { get; set; }
         private String _email { get; set; }
         private String _password { get; set; }
-        private Int32 _roleId { get; set; }
         private String _tokenHash { get; set; }
         public User _user { get; set; }
 
-        public AddUserOperation(string login, string email, string password, int roleId)
+        public AddUserOperation(string login, string email, string password)
         {
             _login = login;
             _email = email;
             _password = password;
-            _roleId = roleId;
             RussianName = "Добавление нового пользователя";
         }
 

@@ -17,16 +17,26 @@ using Tehas.Frontend.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-
+using Tehas.Utils.DataBase;
 
 namespace Tehas.Frontend.Areas.Cabinet.Controllers
 {
     public class AuthorizeController : Controller
     {
+        
+        [AllowAnonymous]
+        public ActionResult Login()
+        {   
+            if (SessionHelpers.IsAuthentificated())            
+                return RedirectToAction("Index", "Main");
+                        
+            return View(new LoginModel());
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public ActionResult Login([Bind(Include = "Login,Password")]LoginModel model)
+        public ActionResult Login([Bind(Include = "Login,Password,IsSave")]LoginModel model)
         {
             if (ModelState.IsValid)
             {
@@ -40,18 +50,20 @@ namespace Tehas.Frontend.Areas.Cabinet.Controllers
                 }
                 ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
             }
-            //TODO откорректировать вьюху
-            return PartialView("UnregisteredUsers/_LoginPartial", model);
-
+            return PartialView("Partial/_loginPartial", model);
         }
 
-        private ActionResult SetSessionData(User user)
+        private ActionResult SetSessionData(User user, bool IsSave = false)
         {
             var session = new SessionModel
             {
                 User = user,
+                TokenHash = user.TokenHash,
             };
-            SessionHelpers.Session("user", session);
+            if (IsSave)
+                SessionHelpers.Session("user", session, 43200);
+            else
+                SessionHelpers.Session("user", session);
             //return RedirectToAction("Index", "Home");
             return Json(new { url = Url.Action("Index", "Profile") });
         }
@@ -64,7 +76,7 @@ namespace Tehas.Frontend.Areas.Cabinet.Controllers
             if (ModelState.IsValid)
             {
                 var pass = HashHelper.GetMd5Hash(model.Password);
-                var operation = new AddUserOperation(model.Name, model.Email, pass, 1);
+                var operation = new AddUserOperation(model.Name, model.Email, pass);
                 operation.ExcecuteTransaction();
                 if (operation.Success)
                 {

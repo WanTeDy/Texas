@@ -17,7 +17,7 @@ namespace Tehas.Frontend.Areas.Cabinet
             context.MapRoute(
                 "Cabinet_default",
                 "Cabinet/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "authorize", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

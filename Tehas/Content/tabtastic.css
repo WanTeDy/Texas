@@ -156,21 +156,46 @@ li.firstchild1 {
 	    transition: .5s ease;
 }
 
+
+#data-container .data-item .appendix1 .status p {
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: #10cd10;
+letter-spacing: 1px;
+}
+
 #data-container .data-item .appendix {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+
+
+	margin-top: -59px;
+	margin-left: 150px;
+
+	width: 85px;
+	height: 33px;
+	border: 1px solid #c85634;
+	/*border-bottom: 1px solid #c85634;
+	border-left: 1px solid #c85634;
+	border-right: 1px solid #c85634;*/
+}
+#data-container .data-item .appendix1 {
 	display: none;
 	flex-direction: row;
-	align-items: flex-start;
+	justify-content: space-around;
 
 
-	margin-top: -62px;
-	margin-left: 165px;
+	margin-top: -59px;
+	margin-left: 85px;
 
-	width: 70px;
+	width: 150px;
 	height: 33px;
-
-	border-bottom: 1px solid #c85634;
+	border: 1px solid #c85634;
+	/*border-bottom: 1px solid #c85634;
 	border-left: 1px solid #c85634;
-	border-right: 1px solid #c85634;
+	border-right: 1px solid #c85634;*/
 }
 #data-container .data-item .appendix input {
 	width: 35px;
@@ -197,6 +222,35 @@ li.firstchild1 {
 #data-container .data-item .appendix .input_ {
 	width: 35px;
 }
+
+/*2*/
+
+#data-container .data-item .appendix1 input {
+	width: 35px;
+	height: 18px;
+	color: #c85634;
+	border: 1px solid #c85634;
+	margin-left: 7px;
+}
+#data-container .data-item .appendix1 .min-cart a {
+	display: block;	
+	width: 18px;
+	height: 18px;
+}
+#data-container .data-item .appendix1 .min-cart a:hover {
+	display: block;
+	opacity: 0.8;	
+}
+#data-container .data-item .appendix1 .min-cart {
+	width: 18px;
+	height: 18px;
+	margin-top: 6px;
+	margin-left: 12px;
+}
+#data-container .data-item .appendix1 .input_ {
+	width: 35px;
+}
+
 
 
 
@@ -504,6 +558,13 @@ input.youtube-video {
 	border-top:1px solid black;
 	border-bottom:1px solid black;
 	padding: 10px;
+}
+.header_admin1 .add_photo h2 {
+	    font-size: 16px;
+	    color: black;
+	    font-family: Arial;
+	    margin-top: 5px;
+	    margin-bottom: 5px;
 }
 .header_admin1 .add_photo  img {
 	margin-right: 7px;

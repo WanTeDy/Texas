@@ -27,7 +27,6 @@ namespace Tehas.Frontend.Models
         [StringLength(500, ErrorMessage = "* Поле {0} должно быть больше {2} и меньше {1} символов.", MinimumLength = 10)]
         public String Message { get; set; }
 
-        public bool Banket { get; set; }
-        public bool Delivery { get; set; }
+        public String Type { get; set; }
     }
 }

@@ -10,11 +10,11 @@ namespace Tehas.Frontend.Controllers
     public class SaunaController : Controller
     {
         // GET: Sauna
-        public ActionResult Index()
-        {
-            var op = new LoadPagesDescOperation("sauna", "index");
-            op.ExcecuteTransaction();
-            return View(op._pageDescription);
-        }
+        //public ActionResult Index()
+        //{
+        //    var op = new LoadPagesDescOperation("sauna", "index");
+        //    op.ExcecuteTransaction();
+        //    return View(op._pageDescription);
+        //}
     }
 }

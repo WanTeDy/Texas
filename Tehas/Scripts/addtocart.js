@@ -24,7 +24,7 @@ function addtocart(id) {
         contentType: 'application/json; charset=utf-8',
         data: json,
         success: function (response) {
-            $("#display_" + id).css("display", "block");
+            $("#display_" + id).css("display", "flex");
             setTimeout(function () {
                 $("#display_" + id).css("display", "none");
             }, 1500);

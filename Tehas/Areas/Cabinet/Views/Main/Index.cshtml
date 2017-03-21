@@ -1,0 +1,354 @@
+﻿@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" id="container">
+    <div class="navigation_string">
+        <div class="way">
+            <a href="/Cabinet/Main">Главная</a>
+            <pre> </pre>
+            <p>></p>
+            <pre> </pre>
+            <a href="/Cabinet/Main">Админка</a>
+        </div>
+    </div>
+</div>
+<div class="information_topic">
+    <div class="container" id="container">
+        <div class="h2"><h2>Редактирование</h2></div>
+    </div>
+    <div class="container" id="container">
+        <div id="pagecontent">
+            <div class="list_1">
+                <h2 class="tabset_label">Table of Contents</h2>
+                <ul class="tabset_tabs">
+                    <li class="firstchild1"><a href="/Cabinet/Main" class="preActive active">Главная</a></li>
+                    <li><a class="1" href="/Cabinet/Page/List">Типовые страницы</a></li>
+                    <li><a class="2" href="/Cabinet/Menu/List">Меню/Доставка</a></li>
+                </ul>
+            </div>
+
+            <div id="adminka1" class="tabset_content tabset_content_active">
+                <h2 class="tabset_label">adminka</h2>
+                <div class="headline">
+                    <h2>Добавленная информация</h2>
+                </div>
+                <div class="added">
+                    <table class="added">
+                        <tr>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Баннер на слайдере</h3>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <!-- <button>Удалить</button> -->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Текст</h3>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <!-- <button>Удалить</button> -->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Видео</h3>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <!-- <button>Удалить</button> -->
+                                </div>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+
+            </div>
+
+            <div id="adminka2" class="tabset_content">
+                <h2 class="tabset_label">adminka</h2>
+
+                <div class="headline">
+                    <h2>Добавленная информация</h2>
+                </div>
+                <div class="added">
+                    <table class="added">
+                        <tr>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Лазертаг Арена</h3>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <!-- <button>Удалить</button> -->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Сауна/Гостиница</h3>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <!-- <button>Удалить</button> -->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Кафе/Банкетный зал/Караоке</h3>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <!-- <button>Удалить</button> -->
+                                </div>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+            <div id="adminka3" class="tabset_content">
+                <h2 class="tabset_label">adminka</h2>
+
+                <div class="headline">
+                    <h2>Добавленные блюда:</h2>
+                    <h2>Сортировка</h2>
+                    <select>
+                        <option>Все</option>
+                        <option>Горячие блюда</option>
+                        <option>Холодные закуски</option>
+                        <option>Салаты</option>
+                        <option>Первые блюда</option>
+                        <option>Пицца</option>
+                        <option>Гарниры</option>
+                        <option>Блюда на мангале</option>
+                        <option>Хлебные изделия</option>
+                        <option>Соусы</option>
+                        <option>Десерты</option>
+                        <option>Холодные напитки</option>
+                        <option>Горячие напитки</option>
+                        <option>Алкогольные напитки</option>
+                        <option>Блюда на заказ</option>
+                    </select>
+                    <button>Сортировать</button>
+                </div>
+                <div class="added">
+                    <div class="buttons">
+                        <button class="add_new">Добавить новое блюдо ►</button>
+                        <button class="delete_all">Удалить выбранные</button>
+                    </div>
+                    <table class="added">
+                        <tr>
+                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Шашлык из свинины</h3>
+                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <button>Удалить</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Шашлык из свинины</h3>
+                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <button>Удалить</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Шашлык из свинины</h3>
+                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <button>Удалить</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Шашлык из свинины</h3>
+                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <button>Удалить</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Шашлык из свинины</h3>
+                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <button>Удалить</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Шашлык из свинины</h3>
+                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <button>Удалить</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Шашлык из свинины</h3>
+                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <button>Удалить</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Шашлык из свинины</h3>
+                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <button>Удалить</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Шашлык из свинины</h3>
+                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <button>Удалить</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
+                            <td>
+                                <div class="prod_info">
+                                    <h3>Шашлык из свинины</h3>
+                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="edit_del">
+                                    <button>Редактировать</button>
+                                    <pre> </pre>
+                                    <pre> </pre>
+                                    <button>Удалить</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

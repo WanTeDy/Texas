@@ -7,6 +7,6 @@ namespace Tehas.Frontend.Models
     public class SessionModel
     {
         public User User { get; set; }
-        //public Cart Cart { get; set; }     
+        public String TokenHash { get; set; }
     }
 }

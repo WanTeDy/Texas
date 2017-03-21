@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" id="container">
+    <div class="navigation_string">
+        <div class="way">
+            <a href="/Cabinet/Main">Главная</a>
+            <pre> </pre>
+            <p>></p>
+            <pre> </pre>
+            <a href="/Cabinet/Page/List">Типовые страницы</a>
+        </div>
+    </div>
+</div>
+<div class="information_topic">
+    <div class="container" id="container">
+        <div class="h2"><h2>Редактирование</h2></div>
+    </div>
+    <div class="container" id="container">
+        <div id="pagecontent">
+            <div class="list_1">
+                <h2 class="tabset_label">Table of Contents</h2>
+                <ul class="tabset_tabs">
+                    <li class="firstchild1"><a href="/Cabinet/Main" class="1">Главная</a></li>
+                    <li><a class="preActive active" href="/Cabinet/Page/List">Типовые страницы</a></li>
+                    <li><a class="2" href="/Cabinet/Menu/List">Меню/Доставка</a></li>
+                </ul>
+            </div>
+
+
+            <div class="header_admin1">
+
+                <div class="add_description>">
+                    <form name="test" method="post" action="#">
+                        <h3>Заглоловок:</h3>
+                        <input type="text" size="40" class="_cost_">
+
+                        <h3>Описание:</h3>
+                        <textarea name="comment" cols="40" rows="10"></textarea>
+                    </form>
+                </div>
+                <div class="add_photo">
+                    <div class="photo">
+                        <img src="images/www.jpg" height="50">
+                        <form enctype="multipart/form-data" action="cabinet/page/index" method="POST">
+                            <div class="file_upload">
+                                <input name="f" type="file" multiple class="select_photo">
+                            </div>
+                            <!-- <input type="submit" value="Сменить фото" class="load_photo"> -->
+                        </form>
+                    </div>
+                </div>
+                <div class="add_video">
+                    <input type="search" name="input_url" list="url-list" placeholder="Cсылка" class="youtube-video">
+                    <p class="yt"> - Введите ссылку на видео с YouTube</p>
+                </div>
+                <input type="submit" value="Добавить" class="add_button">
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -154,6 +154,8 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Cabinet\CabinetAreaRegistration.cs" />
     <Compile Include="Areas\Cabinet\Controllers\AuthorizeController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\MainController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\PageController.cs" />
     <Compile Include="Controllers\CafeController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -204,6 +206,7 @@
     <Content Include="Content\images\bg_hotel.png" />
     <Content Include="Content\images\bg_list.png" />
     <Content Include="Content\images\bg_menu.png" />
+    <Content Include="Content\images\cart.png" />
     <Content Include="Content\images\cartimg.png" />
     <Content Include="Content\images\eye.png" />
     <Content Include="Content\images\fb-g.png" />
@@ -224,6 +227,12 @@
     <Content Include="Content\images\photo1.jpg" />
     <Content Include="Content\images\photo2.jpg" />
     <Content Include="Content\images\photo3.jpg" />
+    <Content Include="Content\images\photo4.jpg" />
+    <Content Include="Content\images\photo5.jpg" />
+    <Content Include="Content\images\photo6.jpg" />
+    <Content Include="Content\images\photo7.jpg" />
+    <Content Include="Content\images\photo8.jpg" />
+    <Content Include="Content\images\photo9.jpg" />
     <Content Include="Content\images\prev.png" />
     <Content Include="Content\images\slider1.jpg" />
     <Content Include="Content\images\slider2.png" />
@@ -246,6 +255,13 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\fonts\decree_art_one.ttf" />
     <Content Include="Areas\Cabinet\Views\web.config" />
+    <Content Include="Areas\Cabinet\Views\Authorize\Login.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\Partial\_loginPartial.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Page\List.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Main\Index.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Page\Detail.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Menu\List.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jcarousellite_1.0.1c5.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -289,7 +305,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Cabinet\Models\" />
-    <Folder Include="Areas\Cabinet\Views\Shared\" />
     <Folder Include="Content\images\pages\cafe\index\" />
     <Folder Include="Content\images\pages\hotel\index\" />
     <Folder Include="Content\images\pages\lazertag\index\" />

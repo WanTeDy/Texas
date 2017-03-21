@@ -33,6 +33,7 @@ namespace Tehas.Frontend.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(EmailModel model)
         {
             if (ModelState.IsValid)

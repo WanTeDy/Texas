@@ -129,15 +129,39 @@ body a {
 	padding-bottom: 8px;
 	border-bottom: 1px solid white;
 }
-.navigation ol li {
-	margin-right: 40px;
+.navigation ol li.main {
+	margin-right:150px;
+}
+.navigation ol li.lazer {
+	margin-right:150px;
+}
+.navigation ol li.menu {
+	margin-right:150px;
 }
 .navigation ol li.sauna {
 	margin-right:150px;
 }
+.navigation ol li.cafe {
+	margin-right:150px;
+}
 .navigation ol li.last {
 	margin-right: 0;
+
 }
+.navigation ol li.last {
+	display: block;
+	height: 62px;
+	width: 64px;
+ 	background-image: url('images/cart.png');
+ 	background-repeat: no-repeat;
+ 	z-index: 10001;
+ }
+ .navigation ol li.last:hover {
+ 	height: 62px;
+	width: 64px;
+ 	background-image: url('images/cart.png');
+ 	display: block;
+ }
 .navigation ol li a {
 	color: #ffffff;
 	font-family: "Decree Art One";
@@ -300,7 +324,7 @@ body a {
 	width: 300px;
 
 	margin-top: 10px;
-	margin-left: 534px;
+	margin-left: 542px;
 }
 .social a {
 	margin-left: 2px;
@@ -579,8 +603,8 @@ box-sizing: border-box;
     letter-spacing: 2px;
 }
 .form_order form h3 {
-	margin-top: 10px;
-	margin-bottom: 12px;
+	margin-top: 12px;
+	margin-bottom: 6px;
 }
 .form_order form input {
 	/*width: 200px;*/
@@ -613,7 +637,14 @@ box-sizing: border-box;
     margin-top: 10px;
 }
 
+.after_order {
+	font-family: Arial;
+	font-size: 32px;
+	text-align: center;
+	color: #c3914a;
 
+	margin-bottom: 20px;
+}
 
 
 /*#toTop {

@@ -17,5 +17,7 @@ namespace Tehas.Frontend.Models
         [StringLength(25, ErrorMessage = "* {0} должен быть больше чем {2} и меньше чем {1}.", MinimumLength = 8)]
         [RegularExpression("(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\n])(?=.*[A-Za-z]).*$", ErrorMessage = "Пароль должен состоять из латинских букв, цифр и/или спецсимволов. Минимум 8 символов")]
         public String Password { get; set; }
+
+        public Boolean IsSave { get; set; }
     }
 }
