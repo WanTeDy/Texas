@@ -1,0 +1,42 @@
+﻿@model Tehas.Utils.DataBase.PagesDesc.PageDescription
+
+
+@using (@Html.BeginForm("detail", "page", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Id)
+    <div class="add_description>">
+        <h3>Заглоловок:</h3>
+        @Html.TextBoxFor(x => x.Title, new { @size = "40", @class = "_cost_" })
+
+        <h3>Описание:</h3>
+        @Html.TextAreaFor(x => x.Description, new { @cols = "40", @rows = "10" })
+    </div>
+    <div class="add_photo">
+        <div class="add_photo">
+            @if (Model.Images != null && Model.Images.Count > 0)
+            {
+                foreach (var image in Model.Images)
+                {
+                    <div class="photo_">
+                        <img id="image_@image.Id" src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                        <a onclick="deleteImage(@image.Id);">X</a>
+                    </div>
+                }
+            }
+            <div class="file_upload">
+                <input type="file" multiple="multiple" accept="image/*" name="images" class="select_photo" />
+            </div>
+            <!-- <input type="submit" value="Сменить фото" class="load_photo"> -->
+        </div>
+    </div>
+    <div class="add_video">
+        @Html.TextBoxFor(x => x.VideoURL, new { @placeholder = "Cсылка", @class = "youtube-video" })
+        <p class="yt"> - Введите ссылку на видео с YouTube</p>
+    </div>
+    <input type="submit" value="Сохранить" class="add_button">
+    <div id="issave" class="add_video">
+        <p class="yt">Изменения сохранены</p>
+    </div>
+}

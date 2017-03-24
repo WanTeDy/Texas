@@ -1,0 +1,27 @@
+﻿@model List<Tehas.Utils.DataBase.Products.Product>
+@foreach (var prod in Model)
+{
+    <tr>
+        <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
+        <td>
+            <div class="prod_info">
+                <h3>@prod.Title</h3>
+                <img src="@Url.Content(prod.Image.Url+prod.Image.FileName)" width="60" height="60" alt="" />
+            </div>
+        </td>
+        <td>
+            <div class="edit_del">
+                <form method="LINK" action="/cabinet/menu/detail/@prod.Id">
+                    <button>Редактировать</button>
+                </form>
+                <pre> </pre>
+                <pre> </pre>
+                <form method="LINK" action="/cabinet/menu/delete/@prod.Id">
+                    <button>Удалить</button>
+                </form>
+            </div>
+        </td>
+    </tr>
+}
+
+

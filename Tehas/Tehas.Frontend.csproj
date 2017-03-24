@@ -154,8 +154,13 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Cabinet\CabinetAreaRegistration.cs" />
     <Compile Include="Areas\Cabinet\Controllers\AuthorizeController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\ImageController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\MainController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\MenuController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\PageController.cs" />
+    <Compile Include="Areas\Cabinet\Models\ProductModel.cs" />
+    <Compile Include="Areas\Cabinet\Models\MenuListModel.cs" />
+    <Compile Include="Areas\Cabinet\Models\CategoryModel.cs" />
     <Compile Include="Controllers\CafeController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -240,6 +245,7 @@
     <Content Include="Content\images\streak.png" />
     <Content Include="Content\images\streak2.png" />
     <Content Include="Content\images\streak3.png" />
+    <Content Include="Content\images\texasmin.png" />
     <Content Include="Content\images\vk-g.png" />
     <Content Include="Content\images\vk.png" />
     <Content Include="Content\images\youtube.png" />
@@ -250,6 +256,7 @@
     <Content Include="Content\tabtastic.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\deleteImage.js" />
     <Content Include="Scripts\addtocart.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -262,6 +269,10 @@
     <Content Include="Areas\Cabinet\Views\Main\Index.cshtml" />
     <Content Include="Areas\Cabinet\Views\Page\Detail.cshtml" />
     <Content Include="Areas\Cabinet\Views\Menu\List.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\Partial\_pagePartial.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\Partial\_listOfProductsPartial.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Menu\Detail.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\Partial\_prodPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jcarousellite_1.0.1c5.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -271,6 +282,7 @@
     <Content Include="Scripts\jquery.easing.1.3.js" />
     <Content Include="Scripts\jquery.fancybox-1.2.1.pack.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -304,11 +316,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Cabinet\Models\" />
+    <Folder Include="Areas\Cabinet\Views\Image\" />
     <Folder Include="Content\images\pages\cafe\index\" />
     <Folder Include="Content\images\pages\hotel\index\" />
     <Folder Include="Content\images\pages\lazertag\index\" />
     <Folder Include="Content\images\pages\sauna\index\" />
+    <Folder Include="Content\images\pages\shtab\index\" />
+    <Folder Include="Content\images\products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

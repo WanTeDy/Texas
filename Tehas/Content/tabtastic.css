@@ -182,7 +182,7 @@ letter-spacing: 1px;
 	border-right: 1px solid #c85634;*/
 }
 #data-container .data-item .appendix1 {
-	display: none;
+	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 
@@ -545,12 +545,32 @@ input.youtube-video {
 .header_admin1 .add_new div {
 	margin-bottom: 5px;
 }
-.header_admin1 .add_photo .photo {
-	display:flex;
+
+.header_admin1 .add_photo {
+		display:flex;
 	flex-direction:row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.header_admin1 .add_photo .photo_ {
+	position: relative;
+}
+.header_admin1 .add_photo .photo_ a {
+	position: absolute;
+	top: 2px;
+	left: 258px;
+	font-family: Arial;
+	color: red;
+}
+.header_admin1 .add_photo .photo_ img {
+	object-fit: cover;
+}
+.header_admin1 .add_photo .photo_ a:hover {
+	color: orange;
 }
 .header_admin1 .add_photo  div {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 .header_admin1 .add_photo {
 	margin-top: 8px;
@@ -559,16 +579,16 @@ input.youtube-video {
 	border-bottom:1px solid black;
 	padding: 10px;
 }
-.header_admin1 .add_photo h2 {
+.header_admin1 h2 {
 	    font-size: 16px;
 	    color: black;
 	    font-family: Arial;
 	    margin-top: 5px;
 	    margin-bottom: 5px;
 }
-.header_admin1 .add_photo  img {
-	margin-right: 7px;
-}
+
+
+
 .header_admin1 select.added_select {
 	width: 300px;
 }

@@ -1,0 +1,30 @@
+﻿@model Tehas.Utils.DataBase.Products.Product
+
+@using (Html.BeginForm("detail", "menu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.CategoryId, new { @Id = "categoryId" })
+    <div class="add_description>">
+        <h3>Название:</h3>
+        @Html.TextBoxFor(x => x.Title, new { @size = "40", @class = "_cost_" })
+        <h3>Точная цена:</h3>
+        @Html.TextBoxFor(x => x.Price, new { @size = "40", @class = "_cost_" })
+
+        <h3>Описание:</h3>
+        @Html.TextAreaFor(x => x.Description, new { @cols = "40", @rows = "10" })
+    </div>
+    <div class="add_photo">
+        <div class="photo">
+            <img src="@Url.Content(Model.Image.Url+Model.Image.FileName)" width="272" height="211" />
+            <div class="file_upload">
+                <input name="image" accept="image/*" type="file" class="select_photo">
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Сохранить" class="add_button">
+    <div id="issave" class="add_video">
+        <p class="yt">Изменения сохранены</p>
+    </div>
+}

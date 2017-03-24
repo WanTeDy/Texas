@@ -9,6 +9,7 @@ namespace Tehas.Utils.BusinessOperations.PagesDesc
     {
         private String _controller { get; set; }
         private String _action { get; set; }
+        private int _id { get; set; }
         public PageDescription _pageDescription { get; set; }
 
         public LoadPagesDescOperation(string controller, string action)
@@ -17,10 +18,18 @@ namespace Tehas.Utils.BusinessOperations.PagesDesc
             _action = action.ToLower();
             RussianName = "Получение информации страницы";
         }
+        public LoadPagesDescOperation(int id)
+        {
+            _id = id;
+            RussianName = "Получение информации страницы";
+        }
 
         protected override void InTransaction()
         {
-            _pageDescription = Context.PageDescriptions.FirstOrDefault(x => x.ControllerName == _controller && x.ActionName == _action && !x.Deleted);
+            if (_id < 1)
+                _pageDescription = Context.PageDescriptions.FirstOrDefault(x => x.ControllerName == _controller && x.ActionName == _action && !x.Deleted);
+            else
+                _pageDescription = Context.PageDescriptions.FirstOrDefault(x => x.Id == _id && !x.Deleted);
         }
     }
 }

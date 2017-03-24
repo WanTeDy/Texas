@@ -7,7 +7,7 @@ body {
 	padding:0;
 	height: cover;
 }
-body a {
+body a, button {
 	cursor: pointer;
 }
 .container {
@@ -117,11 +117,11 @@ body a {
 }
 .navigation {
 	display: flex;	
-	margin-left: 73.5px;
+	margin-left: 33px;
 	letter-spacing: 2px;
 }
 .navigation ol {
-	/*width: 1215px;*/
+	width: 1300px;
 	display: flex;
 	flex-direction: row;
 	margin-top: 46px;
@@ -129,26 +129,21 @@ body a {
 	padding-bottom: 8px;
 	border-bottom: 1px solid white;
 }
-.navigation ol li.main {
-	margin-right:150px;
-}
-.navigation ol li.lazer {
-	margin-right:150px;
-}
-.navigation ol li.menu {
-	margin-right:150px;
-}
-.navigation ol li.sauna {
-	margin-right:150px;
-}
-.navigation ol li.cafe {
-	margin-right:150px;
-}
-.navigation ol li.last {
-	margin-right: 0;
 
+.navigation .left {
+	display: flex;
+	flex-direction: row;
+	width: 550px;
+	margin-right: 190px;
+	justify-content: space-around;
 }
-.navigation ol li.last {
+.navigation .right {
+	display: flex;
+	flex-direction: row;
+	width: 550px;
+	justify-content: space-around;
+}
+/*.navigation ol li.last {
 	display: block;
 	height: 62px;
 	width: 64px;
@@ -161,7 +156,7 @@ body a {
 	width: 64px;
  	background-image: url('images/cart.png');
  	display: block;
- }
+ }*/
 .navigation ol li a {
 	color: #ffffff;
 	font-family: "Decree Art One";
@@ -301,7 +296,7 @@ body a {
 	color: #252525;
 	font-size: 18px;
 	line-height: 24px;
-	font-family: "Decree Art One";
+	font-family: "Arial";
 	font-weight: bold;
 	letter-spacing: 1px;
 	text-align: justify;
@@ -463,24 +458,29 @@ body a {
 	margin-left: 14px;
 	margin-bottom: 14px;
 }
+.gallery .h2 {
+	max-width: 873px;
+	text-align: center;
+}
 .video_youtube1 {
 	margin-left: 246px;
 	margin-top: 35px;
 	margin-bottom: 61px;
 }
-.information_topic .h2 {
-	height: 32px;
-	width: 150px;
-	text-align: center;
-	background: 
- 	url(images/streak3.png) no-repeat 47% 99.5%;
- 	margin-left: 44.5%;
- 	margin-top:25px;
- 	margin-bottom:18px;
-}
 .information_topic {
 	min-width: 1366px;
 	text-align: justify;
+}
+.information_topic .h2 {
+	max-width: 1366px;
+	text-align: center;
+
+	height: 32px;
+	text-align: center;
+	background: 
+ 	url(images/streak3.png) no-repeat 50% 99.5%;
+ 	margin-top:25px;
+ 	margin-bottom:18px;
 }
 .information_topic .h2 h2 {
 	color: #d6b17c;
@@ -605,6 +605,18 @@ box-sizing: border-box;
 .form_order form h3 {
 	margin-top: 12px;
 	margin-bottom: 6px;
+}
+.form_order form h5 {
+	margin-top: 5px;
+
+	color: red;
+	font-family: Arial;
+	font-size: 12px;
+	text-transform: none;
+
+}
+.form_order form button:hover {
+	color: #c85634;
 }
 .form_order form input {
 	/*width: 200px;*/

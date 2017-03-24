@@ -1,5 +1,5 @@
 ﻿@using Tehas.Utils.DataBase.PagesDesc;
-@model PageDescription
+@model PageDescription[]
 <div class="container" id="container">
     <div class="navigation_string">
         <div class="way">
@@ -17,15 +17,28 @@
     </div>
     <div class="banner"></div>
     <div class="container" id="container">
-        <div class="h2"><h2>@Model.Title</h2></div>
-        <p>@Model.Description</p>
+        <div class="h2"><h2>@Model[0].Title</h2></div>
+        <p>@Model[0].Description</p>
     </div>
     <div class="container" id="container">
         <div class="gallery">
-            @if (Model.Images != null && Model.Images.Count > 0)
+            <div class="h2"><h2>TEXAС</h2></div>
+            @if (Model[0].Images != null && Model[0].Images.Count > 0)
             {
                 <ul>
-                    @foreach (var image in Model.Images)
+                    @foreach (var image in Model[0].Images)
+                    {
+                        <li><a class="two" rel="group" title="Лазертаг Арена" href="@Url.Content(image.Url+image.FileName)"><img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" /></a></li>
+                    }
+                </ul>
+            }
+        </div>
+        <div class="gallery">
+            <div class="h2"><h2>ШТАБ</h2></div>
+            @if (Model[1].Images != null && Model[1].Images.Count > 0)
+            {
+                <ul>
+                    @foreach (var image in Model[1].Images)
                     {
                         <li><a class="two" rel="group" title="Лазертаг Арена" href="@Url.Content(image.Url+image.FileName)"><img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" /></a></li>
                     }
@@ -33,7 +46,7 @@
             }
         </div>
         <div class="video_youtube1">
-            <iframe width="872" height="522" src="@Model.VideoURL" frameborder="0" allowfullscreen></iframe>
+            <iframe width="872" height="522" src="@Model[0].VideoURL" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 </div>

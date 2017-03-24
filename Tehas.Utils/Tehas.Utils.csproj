@@ -59,9 +59,13 @@
     <Compile Include="BusinessOperations\Cart\LoadCartOperation.cs" />
     <Compile Include="BusinessOperations\HashHelper.cs" />
     <Compile Include="BusinessOperations\PagesDesc\AddPagesDescOperation.cs" />
+    <Compile Include="BusinessOperations\PagesDesc\UpdatePagesDescOperation.cs" />
     <Compile Include="BusinessOperations\PagesDesc\LoadPagesDescOperation.cs" />
+    <Compile Include="BusinessOperations\Products\LoadAllProductsOperation.cs" />
+    <Compile Include="BusinessOperations\Products\LoadProductOperation.cs" />
     <Compile Include="BusinessOperations\Products\LoadProductsOperation.cs" />
     <Compile Include="BusinessOperations\Products\LoadCategoriesOperation.cs" />
+    <Compile Include="BusinessOperations\Products\UpdateProductOperation.cs" />
     <Compile Include="BusinessOperations\Users\AddUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\LoadUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\UpdateUserOperation.cs" />

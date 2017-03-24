@@ -7,13 +7,13 @@
 <head>
     <title>TEXAC</title>
     <meta charset="utf-8">
-    <!-- <link rel="shortcut icon" href="~/Content/images/rehousemin.jpg" type="image/jpg"> -->
+    <link rel="shortcut icon" href="~/Content/images/texasmin.png" type="image/png">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     <!--@Scripts.Render("~/bundles/fancybox")-->
     @Scripts.Render("~/bundles/jcarousellite")
     <!-- ГЛАВНЫЙ СЛАЙДЕР -->
-    
+
     <script type="text/javascript">
         $(function () {
             $('#slidebox').jCarouselLite({
@@ -51,12 +51,16 @@
                 </div>
                 <div class="navigation">
                     <ol>
-                        <li>@Html.ActionLink("Главная", "index", "home")</li>
-                        <li>@Html.ActionLink("Лазертаг", "index", "lazertag")</li>
-                        <li>@Html.ActionLink("Меню/Доставка", "index", "menu")</li>
-                        <li class="sauna">@Html.ActionLink("Гостиница/Сауна", "index", "hotel")</li>
-                        <li>@Html.ActionLink("Кафе/Банкетный зал/Караоке", "index", "cafe")</li>
-                        <li class="last"><a href="/cart" id=""></a></li>
+                        <div class="left">
+                            <li><a href="/" id="">Главная</a></li>
+                            <li><a href="/lazertag" id="">Лазертаг</a></li>
+                            <li class="menu"><a href="/menu" id="">Меню/Доставка</a></li>
+                        </div>
+                        <div class="right">
+                            <li class="sauna"><a href="/hotel" id="">Гостиница/Сауна</a></li>
+                            <li><a href="/cafe" id="">Кафе/Банкетный зал/Караоке</a></li>
+                            <li class="last"><a href="/cart" id="">Корзина</a></li>
+                        </div>
                     </ol>
                 </div>
                 <div class="social">
@@ -133,12 +137,16 @@
             </div>
             <div class="navigation">
                 <ol>
-                    <li>@Html.ActionLink("Главная", "index", "home")</li>
-                    <li>@Html.ActionLink("Лазертаг", "index", "lazertag")</li>
-                    <li>@Html.ActionLink("Меню/Доставка", "index", "menu")</li>
-                    <li class="sauna">@Html.ActionLink("Гостиница/Сауна", "index", "hotel")</li>
-                    <li>@Html.ActionLink("Кафе/Банкетный зал/Караоке", "index", "cafe")</li>
-                    <li class="last"><a href="/cart" id=""></a></li>
+                    <div class="left">
+                        <li><a href="/" id="">Главная</a></li>
+                        <li><a href="/lazertag" id="">Лазертаг</a></li>
+                        <li class="menu"><a href="/menu" id="">Меню/Доставка</a></li>
+                    </div>
+                    <div class="right">
+                        <li class="sauna"><a href="/hotel" id="">Гостиница/Сауна</a></li>
+                        <li><a href="/cafe" id="">Кафе/Банкетный зал/Караоке</a></li>
+                        <li class="last"><a href="/cart" id="">Корзина</a></li>
+                    </div>
                 </ol>
             </div>
             <div class="social">

@@ -1,15 +1,43 @@
-﻿@{
+﻿@using Tehas.Frontend.Areas.Cabinet.Models
+@model MenuListModel
+@{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
+@section Scripts {
+    <script>
+        function getSortedProducts() {
+            var id = $('#category').val();
+            var obj = {
+                "Id": id
+            }
+
+            var json = JSON.stringify(obj);
+
+            $.ajax({
+                url: "/cabinet/menu/list",
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data: json,
+                success: function (response) {
+                    $("table.added").html(response);
+                },
+                error: function (response) {
+                    //    $(loadingId).hide();
+                    //    $("<span>Извините, при обработке запроса произошла ошибка. Пожалуйста обновите страницу</span>").appendTo($(container));
+                }
+            });
+        }
+    </script>
+    }
 
 <div class="container" id="container">
     <div class="navigation_string">
         <div class="way">
-            <a href="/Cabinet/Main">Главная</a>
+            <a href="/">Главная</a>
             <pre> </pre>
             <p>></p>
             <pre> </pre>
-            <a href="/Cabinet/Menu/List">Меню/Доставка</a>
+            <a href="/Cabinet/Main">Админка</a>
         </div>
     </div>
 </div>
@@ -34,24 +62,14 @@
                 <div class="headline">
                     <h2>Добавленные блюда:</h2>
                     <h2>Сортировка</h2>
-                    <select>
-                        <option>Все</option>
-                        <option>Горячие блюда</option>
-                        <option>Холодные закуски</option>
-                        <option>Салаты</option>
-                        <option>Первые блюда</option>
-                        <option>Пицца</option>
-                        <option>Гарниры</option>
-                        <option>Блюда на мангале</option>
-                        <option>Хлебные изделия</option>
-                        <option>Соусы</option>
-                        <option>Десерты</option>
-                        <option>Холодные напитки</option>
-                        <option>Горячие напитки</option>
-                        <option>Алкогольные напитки</option>
-                        <option>Блюда на заказ</option>
+                    <select id="category">
+                        <option value="0">Все</option>
+                        @foreach (var cat in Model.Categories)
+                        {
+                            <option value="@cat.Id">@cat.RussianName</option>
+                        }
                     </select>
-                    <button>Сортировать</button>
+                    <button onclick="getSortedProducts();">Сортировать</button>
                 </div>
                 <div class="added">
                     <div class="buttons">
@@ -59,176 +77,7 @@
                         <button class="delete_all">Удалить выбранные</button>
                     </div>
                     <table class="added">
-                        <tr>
-                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Шашлык из свинины</h3>
-                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <button>Удалить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Шашлык из свинины</h3>
-                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <button>Удалить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Шашлык из свинины</h3>
-                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <button>Удалить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Шашлык из свинины</h3>
-                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <button>Удалить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Шашлык из свинины</h3>
-                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <button>Удалить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Шашлык из свинины</h3>
-                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <button>Удалить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Шашлык из свинины</h3>
-                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <button>Удалить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Шашлык из свинины</h3>
-                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <button>Удалить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Шашлык из свинины</h3>
-                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <button>Удалить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Шашлык из свинины</h3>
-                                    <img src="images/cartimg.png" width="60" height="60" alt="" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <button>Удалить</button>
-                                </div>
-                            </td>
-                        </tr>
+                        @Html.Partial("Partial/_listOfProductsPartial", Model.Products)
                     </table>
                 </div>
             </div>

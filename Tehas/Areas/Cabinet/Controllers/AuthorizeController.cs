@@ -64,8 +64,8 @@ namespace Tehas.Frontend.Areas.Cabinet.Controllers
                 SessionHelpers.Session("user", session, 43200);
             else
                 SessionHelpers.Session("user", session);
-            //return RedirectToAction("Index", "Home");
-            return Json(new { url = Url.Action("Index", "Profile") });
+            //return RedirectToAction("Index", "Main");
+            return Json(new { url = Url.Action("Index", "Main") });
         }
 
         [HttpPost]

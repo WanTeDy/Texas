@@ -10,14 +10,14 @@
 }
 @section Scripts {
     @Scripts.Render("~/bundles/addtocart")
-<script>
+    @Scripts.Render("~/Scripts/jqueryval")
+    <script>
 
-    $(".after_order").hide();
+        $(".after_order").hide();
 
-    function orderSuccess()
-    {
-        $(".after_order").show();
-    }
+        function orderSuccess() {
+            $(".after_order").show();
+        }
     </script>
 }
 <div class="container" id="container">
@@ -80,7 +80,8 @@
 
                 <div class="form_order">
                     @using (Ajax.BeginForm("index", "cart", null, new AjaxOptions
-                    {                        
+                    {
+                        UpdateTargetId = "application",
                         OnSuccess = "orderSuccess"
                     }, new { @Id = "application" }))
                     {
@@ -88,15 +89,18 @@
                         @Html.ValidationSummary(true)
                         <h3>Имя</h3>
                         @Html.TextBoxFor(x => x.Name, new { @placeholder = "Введите Ваше имя", @id = "applicationName" })
+                        <h5>@Html.ValidationMessageFor(model => model.Name)</h5>
                         <h3>Email</h3>
                         @Html.TextBoxFor(x => x.Email, new { @placeholder = "Введите Ваш Email", @id = "applicationEmail" })
+                        <h5>@Html.ValidationMessageFor(model => model.Email)</h5>
                         <h3>Телефон</h3>
                         @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Введите Ваш телефон", @id = "applicationTelephone" })
+                        <h5>@Html.ValidationMessageFor(model => model.Phone)</h5>
 
                         <h3>Комментарий к заказу</h3>
                         <p>@Html.TextAreaFor(x => x.Message, new { @placeholder = "Введите Ваше сообщение", @id = "applicationText", @rows = "5", @cols = "45" })</p>
 
-                        <div class="checkbox">                            
+                        <div class="checkbox">
                             @Html.RadioButtonFor(x => x.Type, "banket", new { @checked = "cheked" })
                             <label class="check" for="checkbox">Банкет</label>
                             @Html.RadioButtonFor(x => x.Type, "delivery")

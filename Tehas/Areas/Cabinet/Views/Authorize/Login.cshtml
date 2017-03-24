@@ -3,11 +3,21 @@
         Layout = "../Shared/_Layout.cshtml";
     }
 @section Scripts {
+    @Scripts.Render("~/bundles/ajax")
     @Scripts.Render("~/Scripts/jqueryval")
+<script>
+    function LoginOnComplete(data, resul, xhr) {
+        if (data.url) {
+            // if the server returned a JSON object containing an url 
+            // property we redirect the browser to that url            
+            window.location.href = data.url;
+        }
+    }
+    </script>
 }
     <div class="container" id="container">
         <div class="login" id="login">
 
-            @Html.Partial("Partial/_loginPartial", Model);
+            @Html.Partial("Partial/_loginPartial", Model)
         </div>
     </div>

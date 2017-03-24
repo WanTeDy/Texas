@@ -1,15 +1,32 @@
 ﻿@{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
+@model Tehas.Utils.DataBase.PagesDesc.PageDescription
+
+@section Scripts {
+@Scripts.Render("~/bundles/deleteImage")
+    @Scripts.Render("~/bundles/ajax")
+<script>
+    $(document).ready(function () {
+        $('#issave').hide();
+    });
+
+    function SaveComplete() {
+        $('#issave').show(2000, function () {
+            $('#issave').hide(2000);
+        });
+    }
+    </script>
+}
 
 <div class="container" id="container">
     <div class="navigation_string">
         <div class="way">
-            <a href="/Cabinet/Main">Главная</a>
+            <a href="/">Главная</a>
             <pre> </pre>
             <p>></p>
             <pre> </pre>
-            <a href="/Cabinet/Page/List">Типовые страницы</a>
+            <a href="/Cabinet/Main">Админка</a>
         </div>
     </div>
 </div>
@@ -30,32 +47,8 @@
 
 
             <div class="header_admin1">
-
-                <div class="add_description>">
-                    <form name="test" method="post" action="#">
-                        <h3>Заглоловок:</h3>
-                        <input type="text" size="40" class="_cost_">
-
-                        <h3>Описание:</h3>
-                        <textarea name="comment" cols="40" rows="10"></textarea>
-                    </form>
-                </div>
-                <div class="add_photo">
-                    <div class="photo">
-                        <img src="images/www.jpg" height="50">
-                        <form enctype="multipart/form-data" action="cabinet/page/index" method="POST">
-                            <div class="file_upload">
-                                <input name="f" type="file" multiple class="select_photo">
-                            </div>
-                            <!-- <input type="submit" value="Сменить фото" class="load_photo"> -->
-                        </form>
-                    </div>
-                </div>
-                <div class="add_video">
-                    <input type="search" name="input_url" list="url-list" placeholder="Cсылка" class="youtube-video">
-                    <p class="yt"> - Введите ссылку на видео с YouTube</p>
-                </div>
-                <input type="submit" value="Добавить" class="add_button">
+                
+                @Html.Partial("Partial/_pagePartial", Model)
             </div>
 
         </div>

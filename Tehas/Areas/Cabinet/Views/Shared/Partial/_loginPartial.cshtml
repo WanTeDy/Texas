@@ -8,7 +8,7 @@
 
 @using (Ajax.BeginForm("Login", "Authorize", null, new AjaxOptions
 {
-    UpdateTargetId = "loginForm",
+    UpdateTargetId = "login",
     OnSuccess = "LoginOnComplete"
 }, new { @id = "loginForm", @class = "login-form" }))
 
@@ -18,10 +18,10 @@
     @Html.ValidationSummary(true)
     <label for="name">Email:</label>
     @Html.TextBoxFor(x => x.Login)
-    @Html.ValidationMessageFor(model => model.Login, null, new { @class = "error" })
+    <h5>@Html.ValidationMessageFor(model => model.Login, null, new { @class = "error" })</h5>
     <label for="username">Пароль:</label>
     @Html.PasswordFor(x => x.Password)
-    @Html.ValidationMessageFor(model => model.Password, null, new { @class = "error" })
+    <h5>@Html.ValidationMessageFor(model => model.Password, null, new { @class = "error" })</h5>
 
     <div id="lower">
         <input type="checkbox" name="IsSave"><label class="check" for="checkbox">Запомнить меня</label>

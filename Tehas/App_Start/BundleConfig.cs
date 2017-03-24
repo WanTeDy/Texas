@@ -11,8 +11,14 @@ namespace Tehas.Frontend
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ajax").Include(
+                        "~/Scripts/jquery.unobtrusive-ajax.min.js"));
+            
             bundles.Add(new ScriptBundle("~/bundles/addtocart").Include(
                         "~/Scripts/addtocart.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/deleteImage").Include(
+                        "~/Scripts/deleteImage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/lazyload").Include(
                         "~/Scripts/lazyload.js"));
