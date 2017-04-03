@@ -17,7 +17,10 @@
     </div>
     <div class="add_photo">
         <div class="photo">
-            <img src="@Url.Content(Model.Image.Url+Model.Image.FileName)" width="272" height="211" />
+            @if (Model.Image != null)
+            {
+                <img src="@Url.Content(Model.Image.Url + Model.Image.FileName)" width="272" height="211" />
+            }
             <div class="file_upload">
                 <input name="image" accept="image/*" type="file" class="select_photo">
             </div>

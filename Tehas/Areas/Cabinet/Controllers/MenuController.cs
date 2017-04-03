@@ -55,6 +55,7 @@ namespace Tehas.Frontend.Areas.Cabinet.Controllers
             if(operation2._product == null)
                 return HttpNotFound();
 
+            ViewBag.IsSave = false;
             return View(new ProductModel { Categories = operation._categories, Product = operation2._product });
         }
 
@@ -70,8 +71,50 @@ namespace Tehas.Frontend.Areas.Cabinet.Controllers
                 return HttpNotFound();
             var operation = new LoadCategoriesOperation();
             operation.ExcecuteTransaction();
+            ViewBag.IsSave = true;
 
             return View(new ProductModel { Categories = operation._categories, Product = op._product });
+        }
+
+        [HttpPost]
+        public ActionResult Delete(ProductDeleteModel model)
+        {
+            if (!SessionHelpers.IsAuthentificated())
+                return RedirectToAction("Login", "Authorize");
+            DeleteProductsOperation op = new DeleteProductsOperation(model.ProductsId);
+            op.ExcecuteTransaction();
+            
+            var operation = new LoadAllProductsOperation(model.CategoryId);
+            operation.ExcecuteTransaction();
+
+            return PartialView("Partial/_listOfProductsPartial", operation._products);
+        }
+
+        public ActionResult Add()
+        {
+            if (!SessionHelpers.IsAuthentificated())
+                return RedirectToAction("Login", "Authorize");
+
+            ViewBag.IsSave = false;
+            var operation = new LoadCategoriesOperation();
+            operation.ExcecuteTransaction();
+            return View(operation._categories);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Add(Product model, HttpPostedFileBase image)
+        {
+            if (!SessionHelpers.IsAuthentificated())
+                return RedirectToAction("Login", "Authorize");
+            AddProductOperation op = new AddProductOperation(model.CategoryId, model.Description, model.Title, model.Price, image);
+            op.ExcecuteTransaction();
+            
+            var operation = new LoadCategoriesOperation();
+            operation.ExcecuteTransaction();
+
+            ViewBag.IsSave = true;
+            return View(operation._categories);
         }
     }
 }

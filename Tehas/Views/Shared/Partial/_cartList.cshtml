@@ -1,0 +1,77 @@
+﻿@model Tehas.Frontend.Models.FullCartModel
+@{
+    double sum = 0;
+}
+
+
+@if (Model.Products != null && Model.Products.Count > 0)
+{
+    foreach (var prod in Model.Products)
+    {
+        double total = prod.Product.Price * prod.Quantity;
+        sum += total;
+
+        <table>
+            <tr class="head">
+                <td>Фото</td>
+                <td>Название</td>
+                <td>Кол-во</td>
+                <td>Цена за 1 шт. (грн)</td>
+                <td>Всего</td>
+            </tr>
+            <tr class="prod">
+                <td><img src="~/Content/images/cartimg.png" width="71" height="53"></td> @*@Url.Content(prod.Product.Image.Url + prod.Product.Image.FileName)*@
+                <td>@prod.Product.Title</td>
+                <td>
+                    <div class="input_"><input id="quantity_@prod.Product.Id" onblur="changequantity(@prod.Product.Id);" type="number" size="3" name="num" min="0" max="100" value="@prod.Quantity"></div>
+                </td>
+                <td id="price_@prod.Product.Id">@prod.Product.Price</td>
+                <td id="total_@prod.Product.Id">@total</td>
+            </tr>
+        </table>
+
+
+    }
+}
+@if (Model.Games != null && Model.Games.Count > 0)
+{
+    foreach (var prod in Model.Games)
+    {
+        double total = prod.Game.Price * prod.Quantity;
+        sum += total;
+        <table>
+            <tr class="head">
+                <td>Название Заведения</td>
+                <td>Дата</td>
+                <td>Кол-во часов</td>
+                <td>Цена за 1 час (грн)</td>
+                <td>Всего</td>
+            </tr>
+            <tr class="prod">
+                <td>@prod.Game.Name</td>
+                <td id="date_@prod.Game.ParrentId">@prod.Date.ToShortDateString()</td>
+                <td>
+                    <div class="input_"><input type="number" id="gamequantity_@prod.Game.ParrentId" onblur="changegamequantity(@prod.Game.ParrentId);" size="3" name="num" min="0" max="20" value="@prod.Quantity"></div>
+                </td>
+                <td id="gameprice_@prod.Game.ParrentId">@prod.Game.Price</td>
+                <td id="gametotal_@prod.Game.ParrentId">@total</td>
+            </tr>
+        </table>
+
+    }
+}
+@if (Model.Products != null && Model.Products.Count > 0 || Model.Games != null && Model.Games.Count > 0)
+{
+    <div class="sum">
+        <table class="sum_table">
+            <tr class="head">
+                <td>Всего:</td>
+                <td id="total">@sum грн</td>
+            </tr>
+        </table>
+    </div>
+}
+else
+{
+    <div>Корзина пуста!</div>
+}

@@ -9,8 +9,8 @@ namespace Tehas.Utils.DataBase
     public class DbTehas : DbContext
     {
         public DbTehas()
-        :base("Local")
-        //:base("smarterAsp")
+        //:base("Local")
+        :base("smarter")
         { }
 
         public DbSet<User> Users { get; set; }
@@ -19,7 +19,6 @@ namespace Tehas.Utils.DataBase
         public DbSet<PageDescription> PageDescriptions { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<UserEmailMessage> Emails { get; set; }
-        
-       
+        public DbSet<Game> Games { get; set; }
     }
 }

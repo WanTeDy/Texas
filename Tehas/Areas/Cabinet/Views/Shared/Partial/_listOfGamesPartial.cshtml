@@ -1,0 +1,26 @@
+﻿@model List<Tehas.Utils.DataBase.Products.Game>
+@foreach (var prod in Model)
+{
+    <tr>
+        <td>
+            <div class="prod_info">
+                <h3>@prod.Name</h3>
+            </div>
+        </td>
+        <td>
+            @prod.Price
+        </td>
+        <td>
+            @prod.DayOfWeek
+        </td>
+        <td>
+            <div class="edit_del">
+                <form method="LINK" action="/cabinet/game/detail/@prod.Id">
+                    <button>Редактировать</button>
+                </form>
+            </div>
+        </td>
+    </tr>
+}
+
+

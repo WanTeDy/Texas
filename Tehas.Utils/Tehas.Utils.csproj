@@ -57,7 +57,11 @@
     <Compile Include="BusinessOperations\Auth\SetPasswordOperation.cs" />
     <Compile Include="BusinessOperations\BaseOperation.cs" />
     <Compile Include="BusinessOperations\Cart\LoadCartOperation.cs" />
+    <Compile Include="BusinessOperations\Games\LoadGamesOperation.cs" />
+    <Compile Include="BusinessOperations\Games\LoadGameOperation.cs" />
+    <Compile Include="BusinessOperations\Games\UpdateGameOperation.cs" />
     <Compile Include="BusinessOperations\HashHelper.cs" />
+    <Compile Include="BusinessOperations\Images\DeleteImageOperation.cs" />
     <Compile Include="BusinessOperations\PagesDesc\AddPagesDescOperation.cs" />
     <Compile Include="BusinessOperations\PagesDesc\UpdatePagesDescOperation.cs" />
     <Compile Include="BusinessOperations\PagesDesc\LoadPagesDescOperation.cs" />
@@ -65,11 +69,14 @@
     <Compile Include="BusinessOperations\Products\LoadProductOperation.cs" />
     <Compile Include="BusinessOperations\Products\LoadProductsOperation.cs" />
     <Compile Include="BusinessOperations\Products\LoadCategoriesOperation.cs" />
+    <Compile Include="BusinessOperations\Products\DeleteProductsOperation.cs" />
+    <Compile Include="BusinessOperations\Products\AddProductOperation.cs" />
     <Compile Include="BusinessOperations\Products\UpdateProductOperation.cs" />
     <Compile Include="BusinessOperations\Users\AddUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\LoadUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\UpdateUserOperation.cs" />
     <Compile Include="ConstV.cs" />
+    <Compile Include="DataBase\Products\Game.cs" />
     <Compile Include="DataBase\Products\Product.cs" />
     <Compile Include="DataBase\Products\Category.cs" />
     <Compile Include="DataBase\Products\Image.cs" />
@@ -80,8 +87,10 @@
     <Compile Include="DataBase\Security\User.cs" />
     <Compile Include="Except\ActionNotAllowedException.cs" />
     <Compile Include="Except\ReHouseException.cs" />
+    <Compile Include="Helpers\CartGamesModel.cs" />
     <Compile Include="Helpers\CartProductsModel.cs" />
     <Compile Include="Helpers\CartModel.cs" />
+    <Compile Include="Helpers\GameModel.cs" />
     <Compile Include="Helpers\GenerateHash.cs" />
     <Compile Include="Internet.cs" />
     <Compile Include="Migrations\201703191943195_InitialCreate.cs" />
@@ -95,6 +104,18 @@
     <Compile Include="Migrations\201703192213215_images.cs" />
     <Compile Include="Migrations\201703192213215_images.Designer.cs">
       <DependentUpon>201703192213215_images.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703261100078_game.cs" />
+    <Compile Include="Migrations\201703261100078_game.Designer.cs">
+      <DependentUpon>201703261100078_game.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704031938144_Game2.cs" />
+    <Compile Include="Migrations\201704031938144_Game2.Designer.cs">
+      <DependentUpon>201704031938144_Game2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704031943359_Game3.cs" />
+    <Compile Include="Migrations\201704031943359_Game3.Designer.cs">
+      <DependentUpon>201704031943359_Game3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,7 +134,17 @@
     <EmbeddedResource Include="Migrations\201703192213215_images.resx">
       <DependentUpon>201703192213215_images.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703261100078_game.resx">
+      <DependentUpon>201703261100078_game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704031938144_Game2.resx">
+      <DependentUpon>201704031938144_Game2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704031943359_Game3.resx">
+      <DependentUpon>201704031943359_Game3.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

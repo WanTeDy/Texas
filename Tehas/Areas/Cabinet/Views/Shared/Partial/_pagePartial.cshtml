@@ -1,9 +1,7 @@
 ﻿@model Tehas.Utils.DataBase.PagesDesc.PageDescription
 
-
 @using (@Html.BeginForm("detail", "page", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-
     @Html.AntiForgeryToken()
     @Html.HiddenFor(x => x.Id)
     <div class="add_description>">

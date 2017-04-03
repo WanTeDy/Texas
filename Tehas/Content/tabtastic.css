@@ -1,4 +1,4 @@
-#pagecontent h3, h2, select {
+﻿#pagecontent h3, h2, select {
 	font-size: 16px;
 	color: black;
 	font-family: Arial;
@@ -39,8 +39,12 @@ input {
 }
 .tabset_tabs li	{ 
 	margin:0; padding:0;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction:column; 
+	-webkit-flex-direction:column;
+	    -ms-flex-direction:column;
+	        flex-direction:column; 
 	width: 244px;
 }
 li.firstchild {
@@ -68,7 +72,6 @@ li.firstchild1 {
 .tabset_tabs a:hover { 
 	color:gold; background-color: rgba(3, 2, 2, 0.4);
 	padding:15px 0 15px 15px;
-	 -webkit-transition: .5s ease;
 		transition: .5s ease;
 }
 .tabset_tabs a.active { 
@@ -105,8 +108,12 @@ li.firstchild1 {
 .tabset_label	{ display:block }
 }
 #pagecontent {
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 }
 
 #data-container .data-item {
@@ -120,7 +127,7 @@ li.firstchild1 {
 #data-container .data-item p {
 	color: #cc9549;
 	font-family: "Arial";
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: bold;
 	text-align:center;
 	margin-top: 7px;
@@ -134,8 +141,9 @@ li.firstchild1 {
 	line-height: 12px;
 	text-align:left;
 
-	margin-left: 14px;
-	width: 206px;
+	margin-left: 28px;
+	margin-top: 15px;
+	width: 180px;
 }
 #data-container .data-item .order {
 	margin-top: 9.5px;
@@ -166,9 +174,15 @@ letter-spacing: 1px;
 }
 
 #data-container .data-item .appendix {
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
 
 
 	margin-top: -59px;
@@ -182,9 +196,15 @@ letter-spacing: 1px;
 	border-right: 1px solid #c85634;*/
 }
 #data-container .data-item .appendix1 {
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
 
 
 	margin-top: -59px;
@@ -274,9 +294,15 @@ letter-spacing: 1px;
     background: url(images/streak3.png) no-repeat 47% 99.5%;
 }
 #data-container {
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
 	margin-left: 36px;
 }
 .tabset_content #data-container div {
@@ -347,7 +373,7 @@ margin-left: 41%;
   100% {-webkit-transform: rotate(360deg);}
 }
 @keyframes loading-div {
-  100% {transform: rotate(360deg);}
+  100% {-webkit-transform: rotate(360deg);transform: rotate(360deg);}
 }
 
 .tabset_content p.description {
@@ -365,8 +391,12 @@ margin-left: 41%;
 /*adminka*/
 
 #adminka1 .headline {
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 
 	margin-top: 68px;
 	margin-bottom: 48px;
@@ -388,8 +418,12 @@ margin-left: 41%;
 }
 
 #adminka2 .headline {
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 
 	margin-top: 68px;
 	margin-bottom: 48px;
@@ -410,8 +444,12 @@ margin-left: 41%;
 	margin-bottom: 80px;
 }
 #adminka3 .headline {
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 
 	margin-top: 68px;
 	margin-bottom: 48px;
@@ -452,8 +490,12 @@ table.added .prod_info img {
 	object-fit: cover;
 }
 table.added .edit_del {
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 	color: white;
 	font-size: 16px bold;
 }
@@ -462,8 +504,12 @@ table.added .edit_del {
 	padding: 10px 40px 10px 40px;
 }
 .added .buttons {
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 .added .buttons button {
 	width: 250px;
@@ -492,8 +538,12 @@ table.added .edit_del {
 .add_photo .photo1,
 .photo2,
 .photo3 {
+	display:-webkit-flex;
+	display:-ms-flexbox;
 	display:flex;
-	flex-direction:row;
+	-webkit-flex-direction:row;
+	    -ms-flex-direction:row;
+	        flex-direction:row;
 }
 .add_photo  div {
 	margin-bottom: 10px;
@@ -547,10 +597,18 @@ input.youtube-video {
 }
 
 .header_admin1 .add_photo {
+		display:-webkit-flex;
+		display:-ms-flexbox;
 		display:flex;
-	flex-direction:row;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	-webkit-flex-direction:row;
+	    -ms-flex-direction:row;
+	        flex-direction:row;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 
 .header_admin1 .add_photo .photo_ {
@@ -607,7 +665,6 @@ input.youtube-video {
 	margin-top: 2px;
 
 }
-
 
 
 

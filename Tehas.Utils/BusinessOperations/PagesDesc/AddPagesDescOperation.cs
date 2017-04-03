@@ -57,7 +57,7 @@ namespace Tehas.Utils.BusinessOperations.PagesDesc
                             ImageBuilder.Current.Build(
                                 new ImageJob(imageFile.InputStream,
                                 path + filename,
-                                new Instructions("maxwidth=1200&maxheight=1200"),
+                                new Instructions("maxwidth=1600&maxheight=1200"),
                                 false,
                                 false));
 

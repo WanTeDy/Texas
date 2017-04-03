@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Tehas.Frontend.Helpers;
 using Tehas.Utils.BusinessOperations.PagesDesc;
+using Tehas.Utils.DataBase;
 using Tehas.Utils.DataBase.PagesDesc;
 
 namespace Tehas.Frontend.Controllers
@@ -13,7 +14,10 @@ namespace Tehas.Frontend.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var op = new LoadPagesDescOperation("home", "index");
+            op.ExcecuteTransaction();
+            
+            return View(op._pageDescription);
         }
 
         public ActionResult Add()
@@ -25,7 +29,7 @@ namespace Tehas.Frontend.Controllers
         {
             AddPagesDescOperation op = new AddPagesDescOperation(model.ControllerName, model.ActionName, model.Description, model.Title, model.VideoURL, images);
             op.ExcecuteTransaction();
-            if(!op.Success)
+            if (!op.Success)
                 ErrorHelpers.AddModelErrors(ModelState, op.Errors);
             return View(model);
         }

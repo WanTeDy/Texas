@@ -2,22 +2,24 @@
 
 namespace Tehas.Frontend.Areas.Cabinet
 {
-    public class CabinetAreaRegistration : AreaRegistration 
+    public class CabinetAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "Cabinet";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "Cabinet_default",
                 "Cabinet/{controller}/{action}/{id}",
-                new { controller = "authorize", action = "Index", id = UrlParameter.Optional }
+                new { controller = "main", action = "index", id = UrlParameter.Optional },
+                new[] { "Tehas.Frontend.Areas.Cabinet.Controllers" }
+
             );
         }
     }

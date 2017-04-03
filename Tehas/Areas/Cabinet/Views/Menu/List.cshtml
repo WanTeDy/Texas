@@ -27,8 +27,45 @@
                 }
             });
         }
+
+        function deleteChekedProducts() {
+            var elements = $('.checkbox:checked');
+            var count = elements.length;
+            if (count > 0) {
+                var values = elements.map(function () {
+                    return parseInt($(this).val());
+                }).get();
+                deleteProducts(values);
+            }
+        }
+
+        function deleteProducts(ids) {
+            if (confirm("Вы действительно хотите удалить продукты?")) {
+                var id = $('#category').val();
+                var obj = {
+                    "ProductsId": ids,
+                    "CategoryId": id
+                }
+
+                var json = JSON.stringify(obj);
+
+                $.ajax({
+                    url: "/cabinet/menu/delete",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: json,
+                    success: function (response) {
+                        $("table.added").html(response);
+                    },
+                    error: function (response) {
+                        //    $(loadingId).hide();
+                        //    $("<span>Извините, при обработке запроса произошла ошибка. Пожалуйста обновите страницу</span>").appendTo($(container));
+                    }
+                });
+            }
+        }
     </script>
-    }
+}
 
 <div class="container" id="container">
     <div class="navigation_string">
@@ -53,6 +90,7 @@
                     <li class="firstchild1"><a href="/Cabinet/Main" class="1">Главная</a></li>
                     <li><a class="1" href="/Cabinet/Page/List">Типовые страницы</a></li>
                     <li><a class="preActive active" href="/Cabinet/Menu/List">Меню/Доставка</a></li>
+                    <li><a class="2" href="/Cabinet/Game/List">Игры/Тарифы</a></li>
                 </ul>
             </div>
 
@@ -73,8 +111,10 @@
                 </div>
                 <div class="added">
                     <div class="buttons">
-                        <button class="add_new">Добавить новое блюдо ►</button>
-                        <button class="delete_all">Удалить выбранные</button>
+                        <form method="LINK" action="/cabinet/menu/add">
+                            <button class="add_new">Добавить новое блюдо ►</button>
+                        </form>
+                        <button class="delete_all" onclick="deleteChekedProducts();">Удалить выбранные</button>
                     </div>
                     <table class="added">
                         @Html.Partial("Partial/_listOfProductsPartial", Model.Products)

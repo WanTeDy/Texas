@@ -1,0 +1,112 @@
+﻿@using Tehas.Frontend.Areas.Cabinet.Models
+@model List<Tehas.Utils.DataBase.Products.Game>
+@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+@section Scripts {
+    <script>
+        function getSortedProducts() {
+            var id = $('#category').val();
+            var obj = {
+                "Id": id
+            }
+
+            var json = JSON.stringify(obj);
+
+            $.ajax({
+                url: "/cabinet/menu/list",
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data: json,
+                success: function (response) {
+                    $("table.added").html(response);
+                },
+                error: function (response) {
+                    //    $(loadingId).hide();
+                    //    $("<span>Извините, при обработке запроса произошла ошибка. Пожалуйста обновите страницу</span>").appendTo($(container));
+                }
+            });
+        }
+
+        function deleteChekedProducts() {
+            var elements = $('.checkbox:checked');
+            var count = elements.length;
+            if (count > 0) {
+                var values = elements.map(function () {
+                    return parseInt($(this).val());
+                }).get();
+                deleteProducts(values);
+            }
+        }
+
+        function deleteProducts(ids) {
+            if (confirm("Вы действительно хотите удалить продукты?")) {
+                var id = $('#category').val();
+                var obj = {
+                    "ProductsId": ids,
+                    "CategoryId": id
+                }
+
+                var json = JSON.stringify(obj);
+
+                $.ajax({
+                    url: "/cabinet/menu/delete",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: json,
+                    success: function (response) {
+                        $("table.added").html(response);
+                    },
+                    error: function (response) {
+                        //    $(loadingId).hide();
+                        //    $("<span>Извините, при обработке запроса произошла ошибка. Пожалуйста обновите страницу</span>").appendTo($(container));
+                    }
+                });
+            }
+        }
+    </script>
+}
+
+<div class="container" id="container">
+    <div class="navigation_string">
+        <div class="way">
+            <a href="/">Главная</a>
+            <pre> </pre>
+            <p>></p>
+            <pre> </pre>
+            <a href="/Cabinet/Main">Админка</a>
+        </div>
+    </div>
+</div>
+<div class="information_topic">
+    <div class="container" id="container">
+        <div class="h2"><h2>Редактирование</h2></div>
+    </div>
+    <div class="container" id="container">
+        <div id="pagecontent">
+            <div class="list_1">
+                <h2 class="tabset_label">Table of Contents</h2>
+                <ul class="tabset_tabs">
+                    <li class="firstchild1"><a href="/Cabinet/Main" class="1">Главная</a></li>
+                    <li><a class="1" href="/Cabinet/Page/List">Типовые страницы</a></li>
+                    <li><a class="2" href="/Cabinet/Menu/List">Меню/Доставка</a></li>
+                    <li><a class="preActive active" href="/Cabinet/Game/List">Игры/Тарифы</a></li>
+                </ul>
+            </div>
+
+            <div id="adminka3" class="tabset_content tabset_content_active">
+                <h2 class="tabset_label">adminka</h2>
+
+                <div class="headline">
+                    <h2>Игровые тарифы:</h2>
+                    
+                </div>
+                <div class="added">                   
+                    <table class="added">
+                        @Html.Partial("Partial/_listOfGamesPartial", Model)
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

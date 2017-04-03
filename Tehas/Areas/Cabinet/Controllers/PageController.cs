@@ -47,7 +47,7 @@ namespace Tehas.Frontend.Areas.Cabinet.Controllers
             if (op._pageDescription == null)
                 return HttpNotFound();
 
-            return PartialView("Partial/_pagePartial", model);
+            return View(op._pageDescription);
         }
     }
 }

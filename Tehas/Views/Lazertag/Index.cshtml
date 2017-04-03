@@ -1,5 +1,8 @@
 ﻿@using Tehas.Utils.DataBase.PagesDesc;
 @model PageDescription[]
+@section Scripts {
+    @Scripts.Render("~/bundles/addtocart")
+}
 <div class="container" id="container">
     <div class="navigation_string">
         <div class="way">
@@ -23,6 +26,13 @@
     <div class="container" id="container">
         <div class="gallery">
             <div class="h2"><h2>TEXAС</h2></div>
+            <div class="to_do_order"><a onclick="showgamecart(1);">Заказать игру</a></div>
+            <div class="appendix_lazertag" id="order_1">
+                <div class="input_day"><p>Выберите дату: <input id="date_1" type="date" name="calendar"></p></div>
+                <div class="input_time"><p>Количество часов: <input id="quantity_1" type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
+                <div class="min-cart"><p><a onclick="addgametocart(1);">Заказать</a></p></div>
+                <div class="status" id="display_1"><p></p></div>
+            </div>
             @if (Model[0].Images != null && Model[0].Images.Count > 0)
             {
                 <ul>
@@ -35,6 +45,13 @@
         </div>
         <div class="gallery">
             <div class="h2"><h2>ШТАБ</h2></div>
+            <div class="to_do_order"><a onclick="showgamecart(2);">Заказать игру</a></div>
+            <div class="appendix_lazertag" id="order_2">
+                <div class="input_day"><p>Выберите дату: <input id="date_2" type="date" name="calendar"></p></div>
+                <div class="input_time"><p>Количество часов: <input id="quantity_2" type="number" size="3" name="num" min="1" max="10" value="1"></p></div>
+                <div class="min-cart"><p><a onclick="addgametocart(2);">Заказать</a></p></div>
+                <div class="status" id="display_2"><p></p></div>
+            </div>
             @if (Model[1].Images != null && Model[1].Images.Count > 0)
             {
                 <ul>

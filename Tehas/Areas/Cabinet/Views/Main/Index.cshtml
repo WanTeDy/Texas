@@ -1,7 +1,23 @@
 ﻿@{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
+@model Tehas.Utils.DataBase.PagesDesc.PageDescription
 
+@section Scripts {
+    @Scripts.Render("~/bundles/deleteImage")
+    @Scripts.Render("~/bundles/ajax")
+    <script>
+    $(document).ready(function () {
+        $('#issave').hide();
+    });
+
+    function SaveComplete() {
+        $('#issave').show(2000, function () {
+            $('#issave').hide(2000);
+        });
+    }
+    </script>
+}
 <div class="container" id="container">
     <div class="navigation_string">
         <div class="way">
@@ -25,125 +41,14 @@
                     <li class="firstchild1"><a href="/Cabinet/Main" class="preActive active">Главная</a></li>
                     <li><a class="1" href="/Cabinet/Page/List">Типовые страницы</a></li>
                     <li><a class="2" href="/Cabinet/Menu/List">Меню/Доставка</a></li>
+                    <li><a class="2" href="/Cabinet/Game/List">Игры/Тарифы</a></li>
                 </ul>
             </div>
+            <div class="header_admin1">
 
-            <div id="adminka1" class="tabset_content tabset_content_active">
-                <h2 class="tabset_label">adminka</h2>
-                <div class="headline">
-                    <h2>Добавленная информация</h2>
-                </div>
-                <div class="added">
-                    <table class="added">
-                        <tr>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Баннер на слайдере</h3>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <!-- <button>Удалить</button> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Текст</h3>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <!-- <button>Удалить</button> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Видео</h3>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <!-- <button>Удалить</button> -->
-                                </div>
-                            </td>
-                        </tr>
-
-                    </table>
-                </div>
-
-
+                @Html.Partial("Partial/_pagePartial", Model)
             </div>
-
-            <div id="adminka2" class="tabset_content">
-                <h2 class="tabset_label">adminka</h2>
-
-                <div class="headline">
-                    <h2>Добавленная информация</h2>
-                </div>
-                <div class="added">
-                    <table class="added">
-                        <tr>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Лазертаг Арена</h3>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <!-- <button>Удалить</button> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Сауна/Гостиница</h3>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <!-- <button>Удалить</button> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="prod_info">
-                                    <h3>Кафе/Банкетный зал/Караоке</h3>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="edit_del">
-                                    <button>Редактировать</button>
-                                    <pre> </pre>
-                                    <pre> </pre>
-                                    <!-- <button>Удалить</button> -->
-                                </div>
-                            </td>
-                        </tr>
-
-                    </table>
-                </div>
-            </div>            
+                      
         </div>
     </div>
 </div>

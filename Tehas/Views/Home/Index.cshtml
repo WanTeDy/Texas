@@ -1,6 +1,8 @@
 ﻿@{
     Layout = null;
 }
+@using Tehas.Utils.DataBase.PagesDesc;
+@model PageDescription
 
 <!DOCTYPE HTML PUBLIC>
 <html>
@@ -64,10 +66,10 @@
                     </ol>
                 </div>
                 <div class="social">
-                    <div class="divs"><a href="#" class="fb"></a></div>
-                    <div class="divs"><a href="#" class="yt"></a></div>
-                    <div class="divs"><a href="#" class="gmail"></a></div>
-                    <div class="divs"><a href="#" class="vk"></a></div>
+                    <div class="divs"><a href="https://www.facebook.com/texacodessa/" class="fb"></a></div>
+                    <div class="divs"><a href="https://www.youtube.com/channel/UCy0j1e7ZsOqN3gs4aBkJ0Mw" class="yt"></a></div>
+                    <div class="divs"><a href="https://www.instagram.com/texacodessa/" class="insta"></a></div>
+                    <div class="divs"><a href="https://vk.com/shtab_odessa" class="vk"></a></div>
                 </div>
                 <div class="textslide">
                     <div class="h2">
@@ -86,17 +88,21 @@
             </div>
             <div class="next"></div>
             <div class="previous"></div>
-            <div class="thumbs">
+            <div class="thumbs">                
                 <a href="#" onclick="" class="1 thumbActive" id="a"></a>
                 <a href="#" onclick="" class="2" id="b"></a>
                 <a href="#" onclick="" class="3" id="c"></a>
                 <a href="#" onclick="" class="4" id="d"></a>
             </div>
             <ul class="listofimg">
-                <li><img src="~/Content/images/slider1.jpg" width="1366px" height="653px"></li>
-                <li><img src="~/Content/images/slider2.png" width="1366px" height="653px"></li>
-                <li><img src="~/Content/images/slider3.png" width="1366px" height="653px"></li>
-                <li><img src="~/Content/images/slider1.jpg" width="1366px" height="653px"></li>
+                @if (Model.Images != null)
+                {
+                    foreach (var image in Model.Images)
+                    {
+                        <li><img src="@Url.Content(image.Url+image.FileName)" width="1366px" height="653px"></li>
+
+                    }
+                }
             </ul>
         </div>
         <div class="advantages">
@@ -121,11 +127,11 @@
         </div>
         <div class="about_us">
             <div class="text">
-                <h3>Центр отдыха и развлечений ТЕХАС</h3>
-                <p>500 кв.м. стилизованного игрового пространства в стиле вестерн Техаса.Центр отдыха и развлечений «Техас» для детей и взрослых приглашает желающих окунуться в мир дикого Запада, где почувствуешь себя ковбоем. У нас в «Техас» Вы отдохнёте вместе с друзьями и детьми, сможете отметить Дни Рождения и знаменательные даты. Вас встретят с радостью сотрудники этого заведения и порадуют кулинарными способностями. Взрослых и детей заворожит антураж заведения, особенно детей, которые в наше время хотят почувствовать себя ловкими, сильными, меткими стрелками. Лазертаг не оставит равнодушным никого. Центр отдыха гарантирует Вам гармонию во всем и со всеми. Сервис заведения не навязчив, мы сделаем Ваше прибывание у нас запоминающимся и комфортным. Также в «Техасе» можно сменить обстановку: отдохнуть и расслабиться в сауне, и тут же для гостей города-переночевать в уютной гостинице. Те, кто уже был у нас и остался доволен кухней, развлекательной программой для детей, рекомендуют друзьям и знакомым побывать в атмосфере «Техаса» по знаменательному поводу, да и просто так, чтобы быть хоть на время отвлечённым от суеты. Клуб отдыха и развлечений «Техас» для взрослых и детей приглашает Вас поесть, попить, повеселиться и, конечно, «пристреляться» в Лазертаг!</p>
+                <h3>@Model.Title</h3>
+                <p>@Model.Description</p>
             </div>
             <div class="video_youtube">
-                <iframe width="612" height="405" src="https://www.youtube.com/embed/pP9YV_P6WsM" frameborder="0" allowfullscreen></iframe>
+                <iframe width="612" height="405" src="@Model.VideoURL" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
 
@@ -150,10 +156,10 @@
                 </ol>
             </div>
             <div class="social">
-                <div class="divs"><a href="#" class="fb"></a></div>
-                <div class="divs"><a href="#" class="yt"></a></div>
-                <div class="divs"><a href="#" class="gmail"></a></div>
-                <div class="divs"><a href="#" class="vk"></a></div>
+                <div class="divs"><a href="https://www.facebook.com/texacodessa/" class="fb"></a></div>
+                <div class="divs"><a href="https://www.youtube.com/channel/UCy0j1e7ZsOqN3gs4aBkJ0Mw" class="yt"></a></div>
+                <div class="divs"><a href="https://www.instagram.com/texacodessa/" class="insta"></a></div>
+                <div class="divs"><a href="https://vk.com/shtab_odessa" class="vk"></a></div>
             </div>
         </div>
     </div>

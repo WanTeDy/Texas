@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+@using Tehas.Utils.DataBase.Products
+@model List<Category>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/ajax")
+    <script>
+
+
+        $('#issave').hide();
+        if ($('#categoryId').val() == '0') {
+            $('#categoryId').val('1');
+        }
+
+
+        function SaveComplete() {
+            $('#issave').show(2000, function () {
+                $('#issave').hide(2000);
+            });
+        }
+
+        function selectChanged() {
+            $('#categoryId').val($('#catSelect').val());
+        }
+    </script>
+}
+
+<div class="container" id="container">
+    <div class="navigation_string">
+        <div class="way">
+            <a href="/">Главная</a>
+            <pre> </pre>
+            <p>></p>
+            <pre> </pre>
+            <a href="/Cabinet/Main">Админка</a>
+        </div>
+    </div>
+</div>
+<div class="information_topic">
+    <div class="container" id="container">
+        <div class="h2"><h2>Добавление</h2></div>
+    </div>
+    <div class="container" id="container">
+        <div id="pagecontent">
+            <div class="list_1">
+                <h2 class="tabset_label">Table of Contents</h2>
+                <ul class="tabset_tabs">
+                    <li class="firstchild1"><a href="/Cabinet/Main" class="1">Главная</a></li>
+                    <li><a class="2" href="/Cabinet/Page/List">Типовые страницы</a></li>
+                    <li><a class="preActive active" href="/Cabinet/Menu/List">Меню/Доставка</a></li>
+                    <li><a class="2" href="/Cabinet/Game/List">Игры/Тарифы</a></li>
+                </ul>
+            </div>
+
+
+            <div class="header_admin1">
+                <div class="add_new">
+                    <div class="typeofproperty">
+                        <select id="catSelect" onchange="selectChanged();" class="added_select">
+
+                            @foreach (var cat in Model)
+                            {
+                                <option value="@cat.Id">@cat.RussianName</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                @Html.Partial("Partial/_prodAddPartial", new Product())
+            </div>
+        </div>
+    </div>
+</div>

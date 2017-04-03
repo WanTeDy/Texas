@@ -2,7 +2,7 @@
 @foreach (var prod in Model)
 {
     <tr>
-        <td><input type="checkbox" class="checkbox" id="checkbox" /></td>
+        <td><input type="checkbox" class="checkbox" id="checkbox" value="@prod.Id"/></td>
         <td>
             <div class="prod_info">
                 <h3>@prod.Title</h3>
@@ -16,9 +16,7 @@
                 </form>
                 <pre> </pre>
                 <pre> </pre>
-                <form method="LINK" action="/cabinet/menu/delete/@prod.Id">
-                    <button>Удалить</button>
-                </form>
+                <button onclick="deleteProducts([@prod.Id])">Удалить</button>
             </div>
         </td>
     </tr>
