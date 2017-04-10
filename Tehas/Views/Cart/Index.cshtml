@@ -50,9 +50,7 @@
                         <h3>Имя</h3>
                             @Html.TextBoxFor(x => x.Name, new { @placeholder = "Введите Ваше имя", @id = "applicationName" })
                             <h5>@Html.ValidationMessageFor(model => model.Name)</h5>
-                            <h3>Email</h3>
-                            @Html.TextBoxFor(x => x.Email, new { @placeholder = "Введите Ваш Email", @id = "applicationEmail" })
-                            <h5>@Html.ValidationMessageFor(model => model.Email)</h5>
+                            
                             <h3>Телефон</h3>
                             @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Введите Ваш телефон", @id = "applicationTelephone" })
                             <h5>@Html.ValidationMessageFor(model => model.Phone)</h5>

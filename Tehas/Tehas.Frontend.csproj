@@ -167,6 +167,7 @@
     <Compile Include="Areas\Cabinet\Models\CategoryModel.cs" />
     <Compile Include="Controllers\CafeController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
@@ -364,6 +365,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cafe\Index.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
     <None Include="Views\Home\index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -383,6 +385,7 @@
     <Content Include="Views\Sauna\Index.cshtml" />
     <Content Include="Views\Shared\Menu\_listOfProducts.cshtml" />
     <Content Include="Views\Shared\Partial\_cartList.cshtml" />
+    <Content Include="Views\Shared\Comments\_listOfComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

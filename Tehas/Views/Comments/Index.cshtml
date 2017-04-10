@@ -1,0 +1,47 @@
+﻿@using Tehas.Utils.DataBase.Emails;
+@model Comment
+
+<div class="container" id="container">
+    <div class="navigation_string">
+        <div class="way">
+            <a href="/">Главная</a>
+            <pre> </pre>
+            <p>></p>
+            <pre> </pre>
+            @Html.ActionLink("Отзывы", "index", "comments")
+        </div>
+    </div>
+</div>
+<div class="information_topic">
+    <div class="form_comment">
+        <h3>Оставить отзыв</h3>
+        <form name="comment" action="/comments/index" method="post">
+            @Html.AntiForgeryToken()
+            <p>
+                <label>Имя:</label>
+                @Html.TextBoxFor(m => m.Username, new { @required="required" } )
+            </p>
+            <p>
+                <label>Комментарий:</label>
+                <br />
+                @Html.TextAreaFor(m => m.Message, new { @style="width:497px;", @rows = "3", @cols = "47", @required = "required" })
+            </p>
+            <p>
+                <input type="submit" value="Отправить" />
+            </p>
+        </form>
+    </div>
+    @if (ViewBag.Comments != null && ViewBag.Comments.Count > 0)
+    {
+        <div class="container" id="data-container">
+            @Html.Partial("Comments/_listOfComments", ViewBag.Comments as List<Comment>);            
+        </div>
+
+        <div class="container">
+            <div id="button-more" onclick="lazyloadComments();">
+                <a href="">Показать еще отзывы</a>
+            </div>
+            <div id="loading-div"></div>
+        </div>
+    }
+</div>

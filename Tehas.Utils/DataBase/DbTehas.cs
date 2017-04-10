@@ -20,5 +20,7 @@ namespace Tehas.Utils.DataBase
         public DbSet<Category> Categories { get; set; }
         public DbSet<UserEmailMessage> Emails { get; set; }
         public DbSet<Game> Games { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        
     }
 }

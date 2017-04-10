@@ -1,0 +1,9 @@
+﻿@model List<Tehas.Utils.DataBase.Emails.Comment>
+
+@foreach (var prod in Model)
+{
+    <div class="comment">
+        <div class="name_date"><h3 class="name">@prod.Username</h3><pre> </pre><h4 class="time">(@prod.Date.ToShortDateString() в @prod.Date.ToShortTimeString())</h4></div>
+        <p>@prod.Message</p>
+    </div>  
+}

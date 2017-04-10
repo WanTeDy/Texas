@@ -11,7 +11,7 @@
             <p>@prod.Price грн</p>
         </div>
         <div class="order"><a onclick="showcart(@prod.Id);">Заказать</a></div>
-        <div class="appendix1" id="order_@prod.Id">
+        <div class="appendix1" id="order_@prod.Id" style="display:none;">
             <div class="status" id="display_@prod.Id" style="display:none;"><p>Добавлено</p></div>
             <div class="input_"><p><input id="quantity_@prod.Id" type="number" size="3" name="num" min="1" max="50" value="1"></p></div>
             <div class="min-cart"><a onclick="addtocart(@prod.Id);"><img src="~/Content/images/min-cart.png"></a></div>

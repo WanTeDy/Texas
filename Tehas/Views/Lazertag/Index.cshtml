@@ -25,7 +25,6 @@
     </div>
     <div class="container" id="container">
         <div class="gallery">
-            <div class="h2"><h2>TEXAС</h2></div>
             <div class="to_do_order"><a onclick="showgamecart(1);">Заказать игру</a></div>
             <div class="appendix_lazertag" id="order_1">
                 <div class="input_day"><p>Выберите дату: <input id="date_1" type="date" name="calendar"></p></div>
@@ -43,8 +42,11 @@
                 </ul>
             }
         </div>
+        <div class="container" id="container">
+            <div class="h2"><a href="http://shtab.biz.ua/" target="_blank"><h2>@Model[1].Title</h2></a></div>
+            <p>@Model[1].Description</p>
+        </div>
         <div class="gallery">
-            <div class="h2"><h2>ШТАБ</h2></div>
             <div class="to_do_order"><a onclick="showgamecart(2);">Заказать игру</a></div>
             <div class="appendix_lazertag" id="order_2">
                 <div class="input_day"><p>Выберите дату: <input id="date_2" type="date" name="calendar"></p></div>

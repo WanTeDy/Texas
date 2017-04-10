@@ -9,6 +9,7 @@ body {
 }
 body a, button {
 	cursor: pointer;
+    text-decoration:none;
 }
 .container {
 	/*min-width: 1366px;
@@ -315,9 +316,9 @@ body a, button {
 }
 
 .about_us .text {
-	width: 590px;
-	margin-left: 78px;
-	margin-right: 30px;
+	width: 485px;
+ 	margin-left: 115px;
+  	margin-right: 30px;
 }
 .about_us .text h3 {
 	font-family: "Decree Art One";
@@ -329,7 +330,7 @@ body a, button {
 }
 .about_us .text p {
 	color: #252525;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 24px;
 	font-family: "Arial";
 	font-weight: bold;
@@ -720,7 +721,7 @@ box-sizing: border-box;
 
 .gallery .to_do_order {
 	text-align: center;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	margin-top: 20px;
 }
 
@@ -770,11 +771,12 @@ box-sizing: border-box;
 }
 .gallery .appendix_lazertag {
     display:none;
-	width: 290px;
+	width: 300px;
 	padding: 10px;
 	border: 1px solid #d48b24;
 	border-radius: 10px;
 	margin-bottom: 12px;
+    margin-left: 32%;
 }
 
 .gallery .appendix_lazertag .min-cart a {
@@ -817,7 +819,129 @@ text-decoration: none;
     letter-spacing: 1px;
 
 }
+.comment .name_date {
+	display: flex;
+    flex-direction: row;
+    vertical-align: bottom;
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
+.comment h3 {
+    padding-bottom: 1px;
+    border-bottom: 1px solid #d48b24;
+    color: #d48b24;
+    font-family: "Arial";
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+.comment pre {
+    padding-bottom: 1px;
+    border-bottom: 1px solid #d48b24;
+    color: #d48b24;
+    font-family: "Arial";
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+.comment h4 {
+    padding-bottom: 1px;
+    border-bottom: 1px solid #d48b24;
+    color: #d48b24;
+    font-family: "Arial";
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+#button-more {
+	max-width: 1366px;
+	width: 100%;
+	height: 29px;
+	
+	margin-bottom: 40px;
+}
+#button-more a {
+	display: block;
+	background-color: #cc9549;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
 
+	color: #ffffff;
+	font-family: "Decree Art One";
+	font-size: 24px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+#button-more a:hover {
+	background-color:#c85634;
+	transition: .5s ease;
+}
+#loading-div {
+margin-left: 48%;
+  width: 0;
+  padding: 18px;
+  background-image:
+   radial-gradient(circle at 0% 0%, transparent 40%, gold 40%, gold 70%, transparent 70%),
+   radial-gradient(circle at 100% 0%, transparent 40%, rgba(240, 200, 2,.2) 40%, rgba(240, 200, 2,.2) 70%, transparent 70%),
+   radial-gradient(circle at 100% 100%, transparent 40%, rgba(240, 200, 2,.2) 40%, rgba(240, 200, 2,.2) 70%, transparent 70%),
+   radial-gradient(circle at 0% 100%, transparent 40%, rgba(240, 200, 2,.2) 40%, rgba(240, 200, 2,.2) 70%, transparent 70%);
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  background-position: 100% 100%, 0 100%, 0 0, 100% 0;
+  -webkit-animation: loading-div linear .7s infinite;
+  animation: loading-div linear .7s infinite;
+}
+@-webkit-keyframes loading-div {
+  100% {-webkit-transform: rotate(360deg);}
+}
+@keyframes loading-div {
+  100% {-webkit-transform: rotate(360deg);transform: rotate(360deg);}
+}
+
+.advantages .comments {
+	text-align: center;
+}
+.advantages .comments a {
+	text-decoration: none;
+	color: white;
+	border-bottom: 2px solid white;
+	padding-bottom: 2px;
+}
+.advantages .comments a:hover {
+	color: orange;
+}
+.form_comment {
+	width: 500px;
+	margin-left: 433px;
+	margin-top: 15px;
+	padding: 10px;
+	border: 1px solid #d48b24;
+	border-radius: 10px;
+}
+.form_comment p {
+	margin-bottom: 10px;
+}
+.form_comment h3 {
+    color: #d48b24;
+    font-family: "Arial";
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+.form_comment input, textarea {
+	border: 1px solid #d48b24;
+	 color: #d48b24;
+    font-family: "Arial";
+    font-size: 18px;
+    font-weight: 700;
+    padding: 4px;
+    background: none;
+}
 
 /*#toTop {
 	width:30px;
