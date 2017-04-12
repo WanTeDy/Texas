@@ -16,15 +16,17 @@ namespace Tehas.Utils.BusinessOperations.Products
         private String _description { get; set; }
         private String _title { get; set; }
         private double _price { get; set; }
+        private bool _isHot { get; set; }
         private HttpPostedFileBase _image { get; set; }
         public Product _product { get; set; }
 
-        public UpdateProductOperation(int id, int categoryId, string description, string title, double price, HttpPostedFileBase image)
+        public UpdateProductOperation(int id, int categoryId, string description, string title, double price, bool isHot, HttpPostedFileBase image)
         {
             _id = id;
             _description = description;
             _title = title;
             _price = price;
+            _isHot = isHot;
             _image = image;
             _categoryId = categoryId;
             RussianName = "Редактирование информации продукта";
@@ -86,6 +88,7 @@ namespace Tehas.Utils.BusinessOperations.Products
                         _product.Title = _title;
                         _product.Description = _description;
                         _product.Price = _price;
+                        _product.IsHot = _isHot;
                         Context.SaveChanges();
                     }
                 }

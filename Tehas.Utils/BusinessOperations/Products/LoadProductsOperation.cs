@@ -23,15 +23,22 @@ namespace Tehas.Utils.BusinessOperations.Products
 
         protected override void InTransaction()
         {
-            var category = Context.Categories.FirstOrDefault(x => x.Id == _categoryid && !x.Deleted);
-            if (category == null)
+            if(_categoryid == -1)
             {
-                Errors.Add("Id", "Такой категории не существует");
+                _products = Context.Products.Where(x => x.IsHot && !x.Deleted).OrderBy(x => x.Id).Skip((_page - 1) * _count).Take(_count).ToList();
             }
             else
             {
-                _products = Context.Products.Where(x => x.CategoryId == _categoryid && !x.Deleted).OrderBy(x => x.Id).Skip((_page - 1) * _count).Take(_count).ToList();
-            }
+                var category = Context.Categories.FirstOrDefault(x => x.Id == _categoryid && !x.Deleted);
+                if (category == null)
+                {
+                    Errors.Add("Id", "Такой категории не существует");
+                }
+                else
+                {
+                    _products = Context.Products.Where(x => x.CategoryId == _categoryid && !x.Deleted).OrderBy(x => x.Id).Skip((_page - 1) * _count).Take(_count).ToList();
+                }
+            }            
         }
     }
 }

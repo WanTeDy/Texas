@@ -31,6 +31,10 @@ namespace Tehas.Utils.DataBase.Products
         /// Image's id
         /// </summary>
         public Int32 ImageId { get; set; }
+        /// <summary>
+        /// IsHot - show in top menu
+        /// </summary>
+        public bool IsHot { get; set; }
 
         public virtual Category Category { get; set; }        
         public virtual Image Image { get; set; }

@@ -15,13 +15,15 @@ namespace Tehas.Utils.BusinessOperations.Products
         private String _description { get; set; }
         private String _title { get; set; }
         private double _price { get; set; }
+        private bool _isHot { get; set; }
         private HttpPostedFileBase _image { get; set; }
 
-        public AddProductOperation(int categoryId, string description, string title, double price, HttpPostedFileBase image)
+        public AddProductOperation(int categoryId, string description, string title, double price, bool isHot, HttpPostedFileBase image)
         {
             _description = description;
             _title = title;
             _price = price;
+            _isHot = isHot;
             _image = image;
             _categoryId = categoryId;
             RussianName = "Добавление продукта";
@@ -73,6 +75,7 @@ namespace Tehas.Utils.BusinessOperations.Products
                     _product.Title = _title;
                     _product.Description = _description;
                     _product.Price = _price;
+                    _product.IsHot = _isHot;
                     Context.Products.Add(_product);
                     Context.SaveChanges();
                 }

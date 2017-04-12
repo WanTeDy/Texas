@@ -65,7 +65,7 @@ namespace Tehas.Frontend.Areas.Cabinet.Controllers
         {
             if (!SessionHelpers.IsAuthentificated())
                 return RedirectToAction("Login", "Authorize");
-            UpdateProductOperation op = new UpdateProductOperation(model.Id, model.CategoryId, model.Description, model.Title, model.Price, image);
+            UpdateProductOperation op = new UpdateProductOperation(model.Id, model.CategoryId, model.Description, model.Title, model.Price, model.IsHot, image);
             op.ExcecuteTransaction();
             if (op._product == null)
                 return HttpNotFound();
@@ -107,7 +107,8 @@ namespace Tehas.Frontend.Areas.Cabinet.Controllers
         {
             if (!SessionHelpers.IsAuthentificated())
                 return RedirectToAction("Login", "Authorize");
-            AddProductOperation op = new AddProductOperation(model.CategoryId, model.Description, model.Title, model.Price, image);
+
+            AddProductOperation op = new AddProductOperation(model.CategoryId, model.Description, model.Title, model.Price, model.IsHot, image);
             op.ExcecuteTransaction();
             
             var operation = new LoadCategoriesOperation();

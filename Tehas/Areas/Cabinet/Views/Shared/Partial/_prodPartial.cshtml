@@ -14,6 +14,8 @@
 
         <h3>Описание:</h3>
         @Html.TextAreaFor(x => x.Description, new { @cols = "40", @rows = "10" })
+        <h3>Hot:</h3>
+        @Html.CheckBoxFor(x => x.IsHot)
     </div>
     <div class="add_photo">
         <div class="photo">

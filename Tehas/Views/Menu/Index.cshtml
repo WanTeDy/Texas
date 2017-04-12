@@ -25,7 +25,7 @@
             <div class="list_">
                 <h2 class="tabset_label">Table of Contents</h2>
                 <ul class="tabset_tabs">
-                    @if (Model.Products != null && Model.Products.Count > 0)
+                    @if (Model.Products != null && Model.Products.Count > 0 && !ViewBag.Main)                    
                     {
                         <li class="firstchild"><a href="/menu" class="1">Меню (Доставка)</a></li>
                     }
@@ -35,15 +35,30 @@
                     }
                     @if (Model.Categories != null && Model.Categories.Count > 0)
                     {
-                        foreach (var cat in Model.Categories)
+                        var first = Model.Categories.FirstOrDefault(x => x.Id == 14);
+                        if (first != null)
                         {
-                            if (Model.Products != null && Model.Products.Count > 0 && cat.Id == Model.Products.First().CategoryId)
+                            if (Model.Products != null && Model.Products.Count > 0 && first.Id == Model.Products.First().CategoryId && !ViewBag.Main)
                             {
-                                <li><a class="preActive active" href="~/menu/products/@cat.Id">@cat.RussianName</a></li>
+                                <li><a class="preActive active" href="~/menu/products/@first.Id">@first.RussianName</a></li>
                             }
                             else
                             {
+                                <li><a class="1" href="~/menu/products/@first.Id">@first.RussianName</a></li>
+                            }
+                        }
+                        foreach (var cat in Model.Categories)
+                        {
+                            if (cat.Id != 14)
+                            {
+                                if (Model.Products != null && Model.Products.Count > 0 && cat.Id == Model.Products.First().CategoryId && !ViewBag.Main)
+                                {
+                                <li><a class="preActive active" href="~/menu/products/@cat.Id">@cat.RussianName</a></li>
+                                }
+                                else
+                                {
                                 <li><a class="1" href="~/menu/products/@cat.Id">@cat.RussianName</a></li>
+                                }
                             }
                         }
                     }
@@ -52,15 +67,27 @@
             @if (Model.Products != null && Model.Products.Count > 0)
             {
                 <div id="adminka2" class="tabset_content tabset_content_active">
-                    <h2 class="tabset_label">Продажа</h2>
-                    <div class="h23"><h2>@Model.Products.First().Category.RussianName</h2></div>
-
-                    <div id="data-container">
-                        @Html.Partial("Menu/_listOfProducts", Model.Products);
-                    </div>
-                    <div id="button-more" onclick="lazyload(@Model.Products.First().CategoryId);">
-                        <a>Показать еще</a>
-                    </div>
+                    @if (ViewBag.Main)
+                    {
+                        <p class="description">@Model.PageDescription.Description</p>
+                        <div id="data-container">
+                            @Html.Partial("Menu/_listOfProducts", Model.Products);
+                        </div>
+                        <div id="button-more" onclick="lazyload(-1);">
+                            <a>Показать еще</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <h2 class="tabset_label">Продажа</h2>
+                        <div class="h23"><h2>@Model.Products.First().Category.RussianName</h2></div>
+                        <div id="data-container">
+                            @Html.Partial("Menu/_listOfProducts", Model.Products);
+                        </div>
+                        <div id="button-more" onclick="lazyload(@Model.Products.First().CategoryId);">
+                            <a>Показать еще</a>
+                        </div>
+                    }  
                     <div id="loading-div"></div>
                 </div>
             }

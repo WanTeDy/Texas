@@ -21,12 +21,15 @@ namespace Tehas.Frontend.Controllers
             op.ExcecuteTransaction();
             var op2 = new LoadCategoriesOperation();
             op2.ExcecuteTransaction();
+            var op3 = new LoadHotProductsOperation(1, ConstV.ItemsPerPage);
+            op3.ExcecuteTransaction();
             var model = new MenuModel
             {
                 PageDescription = op._pageDescription,
                 Categories = op2._categories,
-                Products = new List<Utils.DataBase.Products.Product>(),
+                Products = op3._products,
             };
+            ViewBag.Main = true;
             return View(model);
         }
 
@@ -49,6 +52,7 @@ namespace Tehas.Frontend.Controllers
                 Categories = op3._categories,
                 Products = op._products,
             };
+            ViewBag.Main = false;
             return View("Index", model);
         }
 
