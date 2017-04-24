@@ -4,6 +4,7 @@
 @section Scripts {
     @Scripts.Render("~/bundles/addtocart")
     @Scripts.Render("~/Scripts/jqueryval")
+@Scripts.Render("~/bundles/ajax")
     <script>
 
         $(".after_order").hide();
@@ -39,7 +40,7 @@
                     @Html.Partial("Partial/_cartList", new FullCartModel { Products = ViewBag.Products, Games = ViewBag.Games })
                 </div>
                 <div class="form_order">
-                    @using (Ajax.BeginForm("index", "cart", null, new AjaxOptions
+                    @using (Ajax.BeginForm("Send", "Email", null, new AjaxOptions
                     {
                         UpdateTargetId = "application",
                         OnSuccess = "orderSuccess"
@@ -57,6 +58,7 @@
 
                             <h3>Комментарий к заказу</h3>
                             <p>@Html.TextAreaFor(x => x.Message, new { @placeholder = "Введите Ваше сообщение", @id = "applicationText", @rows = "5", @cols = "45" })</p>
+                            <h5>@Html.ValidationMessageFor(model => model.Message)</h5>
 
                             <div class="checkbox">
                                 @Html.RadioButtonFor(x => x.Type, "banket", new { @checked = "cheked" })

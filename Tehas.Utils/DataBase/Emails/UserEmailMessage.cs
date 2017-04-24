@@ -23,6 +23,10 @@ namespace Tehas.Utils.DataBase.Emails
         /// </summary> 
         public String Message { get; set; }
         /// <summary>
+        /// Message
+        /// </summary> 
+        public String Type { get; set; }
+        /// <summary>
         /// datetime
         /// </summary> 
         public DateTime Date { get; set; }

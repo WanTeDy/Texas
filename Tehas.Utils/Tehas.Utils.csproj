@@ -40,10 +40,19 @@
       <HintPath>..\packages\ImageResizer.4.0.5\lib\net45\ImageResizer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RazorEngine, Version=3.9.3.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.9.3\lib\net45\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,6 +73,7 @@
     <Compile Include="BusinessOperations\Games\UpdateGameOperation.cs" />
     <Compile Include="BusinessOperations\HashHelper.cs" />
     <Compile Include="BusinessOperations\Images\DeleteImageOperation.cs" />
+    <Compile Include="BusinessOperations\Orders\CreateOrderOperation.cs" />
     <Compile Include="BusinessOperations\PagesDesc\AddPagesDescOperation.cs" />
     <Compile Include="BusinessOperations\PagesDesc\UpdatePagesDescOperation.cs" />
     <Compile Include="BusinessOperations\PagesDesc\LoadPagesDescOperation.cs" />
@@ -80,6 +90,9 @@
     <Compile Include="BusinessOperations\Users\UpdateUserOperation.cs" />
     <Compile Include="ConstV.cs" />
     <Compile Include="DataBase\Emails\Comment.cs" />
+    <Compile Include="DataBase\Orders\OrderGames.cs" />
+    <Compile Include="DataBase\Orders\OrderProducts.cs" />
+    <Compile Include="DataBase\Orders\Order.cs" />
     <Compile Include="DataBase\Products\Game.cs" />
     <Compile Include="DataBase\Products\Product.cs" />
     <Compile Include="DataBase\Products\Category.cs" />
@@ -94,8 +107,10 @@
     <Compile Include="Helpers\CartGamesModel.cs" />
     <Compile Include="Helpers\CartProductsModel.cs" />
     <Compile Include="Helpers\CartModel.cs" />
+    <Compile Include="Helpers\FullCartModel.cs" />
     <Compile Include="Helpers\GameModel.cs" />
     <Compile Include="Helpers\GenerateHash.cs" />
+    <Compile Include="Helpers\SmtpEmailSender.cs" />
     <Compile Include="Internet.cs" />
     <Compile Include="Migrations\201703191943195_InitialCreate.cs" />
     <Compile Include="Migrations\201703191943195_InitialCreate.Designer.cs">
@@ -129,6 +144,10 @@
     <Compile Include="Migrations\201704122053012_hot.Designer.cs">
       <DependentUpon>201704122053012_hot.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704242103082_emails.cs" />
+    <Compile Include="Migrations\201704242103082_emails.Designer.cs">
+      <DependentUpon>201704242103082_emails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -160,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704122053012_hot.resx">
       <DependentUpon>201704122053012_hot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704242103082_emails.resx">
+      <DependentUpon>201704242103082_emails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

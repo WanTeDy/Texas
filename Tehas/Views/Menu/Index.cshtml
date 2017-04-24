@@ -69,7 +69,7 @@
                 <div id="adminka2" class="tabset_content tabset_content_active">
                     @if (ViewBag.Main)
                     {
-                        <p class="description">@Model.PageDescription.Description</p>
+                        <p class="description">@Html.Raw(Model.PageDescription.Description)</p>
                         <div id="data-container">
                             @Html.Partial("Menu/_listOfProducts", Model.Products);
                         </div>
@@ -94,7 +94,7 @@
             else
             {
                 <div id="adminka1" class="tabset_content tabset_content_active">
-                    <p class="description">@Model.PageDescription.Description</p>
+                    <p class="description">@Html.Raw(Model.PageDescription.Description)</p>
                 </div>
             }
         </div>

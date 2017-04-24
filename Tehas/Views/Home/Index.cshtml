@@ -81,6 +81,10 @@
                     <div class="h3">
                         <h2>Выбери своего героя</h2>
                     </div>
+                    <div class="tel_number">
+                        <a href="tel:+380503295858"><p>тел: 050 329 5858</p></a>
+                        <a href="tel:+380487099330"><p>тел: 048 709 9330</p></a>
+                    </div>
                 </div>
 
                 <div class="streak">
@@ -131,7 +135,7 @@
         <div class="about_us">
             <div class="text">
                 <h3>@Model.Title</h3>
-                <p>@Model.Description</p>
+                <p>@Html.Raw(Model.Description)</p>
             </div>
             <div class="video_youtube">
                 <iframe width="612" height="405" src="@Model.VideoURL" frameborder="0" allowfullscreen></iframe>

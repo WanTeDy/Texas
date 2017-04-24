@@ -59,19 +59,18 @@ namespace Tehas.Utils.BusinessOperations.Products
                             var path = HttpContext.Current.Server.MapPath(url);
                             _image.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
                             int point = _image.FileName.LastIndexOf('.');
-                            var ext = _image.FileName.Substring(point);
-                            var filename = _image.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime() + ext;
+                            var filename = _image.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
 
                             ImageBuilder.Current.Build(
                                 new ImageJob(_image.InputStream,
                                 path + filename,
-                                new Instructions("maxwidth=1200&maxheight=1200"),
+                                new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80"),
                                 false,
-                                false));
+                                true));
 
                             var image = new Image
                             {
-                                FileName = filename,
+                                FileName = filename + ".jpg",
                                 Url = url,
                             };
                             var deleteImg = _product.Image;

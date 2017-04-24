@@ -14,11 +14,11 @@ namespace Tehas.Frontend.Helpers
             return obj;
         }
 
-        public static object Session(string key, Type responseType)
-        {
-            var obj = HttpContext.Current.Session[key];
-            return obj;
-        }
+        //public static object Session(string key, Type responseType)
+        //{
+        //    var obj = HttpContext.Current.Session[key];
+        //    return obj;
+        //}
         public static void Session(string key, object value)
         {
             HttpContext.Current.Session.Timeout = 180;

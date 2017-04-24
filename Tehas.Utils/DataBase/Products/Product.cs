@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tehas.Utils.DataBase.Orders;
 using Tehas.Utils.DataBase.Security;
 using Tehas.Utils.Helpers;
 
@@ -38,5 +39,6 @@ namespace Tehas.Utils.DataBase.Products
 
         public virtual Category Category { get; set; }        
         public virtual Image Image { get; set; }
+        public virtual List<OrderProducts> OrderProducts { get; set; }
     }
 }

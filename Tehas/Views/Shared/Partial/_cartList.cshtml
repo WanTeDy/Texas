@@ -20,7 +20,7 @@
                 <td>Всего</td>
             </tr>
             <tr class="prod">
-                <td><img src="~/Content/images/cartimg.png" width="71" height="53"></td> @*@Url.Content(prod.Product.Image.Url + prod.Product.Image.FileName)*@
+                <td><img src="@Url.Content(prod.Product.Image.Url+prod.Product.Image.FileName)" width="71" height="53"></td>
                 <td>@prod.Product.Title</td>
                 <td>
                     <div class="input_"><input id="quantity_@prod.Product.Id" onblur="changequantity(@prod.Product.Id);" type="number" size="3" name="num" min="0" max="100" value="@prod.Quantity"></div>

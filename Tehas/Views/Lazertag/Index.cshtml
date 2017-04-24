@@ -21,7 +21,7 @@
     <div class="banner"></div>
     <div class="container" id="container">
         <div class="h2"><h2>@Model[0].Title</h2></div>
-        <p>@Model[0].Description</p>
+        <p>@Html.Raw(Model[0].Description)</p>
     </div>
     <div class="container" id="container">
         <div class="gallery">
@@ -44,7 +44,7 @@
         </div>
         <div class="container" id="container">
             <div class="h2"><a href="http://shtab.biz.ua/" target="_blank"><h2>@Model[1].Title</h2></a></div>
-            <p>@Model[1].Description</p>
+            <p>@Html.Raw(Model[1].Description)</p>
         </div>
         <div class="gallery">
             <div class="to_do_order"><a onclick="showgamecart(2);">Заказать игру</a></div>

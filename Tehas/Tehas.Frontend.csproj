@@ -85,6 +85,10 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RazorEngine, Version=3.9.3.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.9.3\lib\net45\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -168,6 +172,7 @@
     <Compile Include="Controllers\CafeController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
@@ -363,6 +368,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="smtptester.aspx" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cafe\Index.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
@@ -386,6 +392,7 @@
     <Content Include="Views\Shared\Menu\_listOfProducts.cshtml" />
     <Content Include="Views\Shared\Partial\_cartList.cshtml" />
     <Content Include="Views\Shared\Comments\_listOfComments.cshtml" />
+    <Content Include="Views\MailTemplate\OrderMailView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,7 +6,7 @@ using Tehas.Utils.Helpers;
 
 namespace Tehas.Utils
 {
-    public class ConstV
+    public static class ConstV
     {
         //public const Int32 ACategoryId = 1; //пропускаем
         //public const Int32 BCode = 2;
@@ -23,13 +23,15 @@ namespace Tehas.Utils
         //public const Int32 MRecommendedPrice = 13; //can be empty
         //public const Int32 N_DDP = 14; //can be empty
         //public const Int32 OWarranty = 15; //can be empty
-        public const Int32 ItemsPerPage = 12; 
+        public const Int32 ItemsPerPage = 12;
         //public const Int32 QNote = 17;  //can be empty
         //public const Int32 RDayDelivery = 18; //0 1 2 3 Days
         //public const Int32 SProductId = 19; //пропускаем
         //public const Int32 TURL = 20;
-        
+
         public const String RoleAdministrator = "Администратор";
+        public static String ServerLocalPath { get; set; }
+
         //public const String RoleManager = "Менеджер";
         //public const String RolePartner = "Партнер";
         //public const String RoleClient = "Клиент";
@@ -72,7 +74,7 @@ namespace Tehas.Utils
         //    {FromWhatProvider.All, "Все поставщки"},
         //    //{FromWhatProvider.Provider2, "От 2 Поставщика"},            
         //};
-        
+
         //public static readonly Dictionary<String, OrderOutType> OrderOutTypeFromString = new Dictionary<string, OrderOutType>
         //{
         //    //{"Все", OrderOutType.All},

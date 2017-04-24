@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Web;
 using System.Collections.Generic;
 using Tehas.Utils.DataBase.Security;
 using Tehas.Utils.DataBase.Products;
+using System.Web.Mvc;
 
 namespace Tehas.Utils.DataBase.PagesDesc
 {
@@ -11,6 +13,7 @@ namespace Tehas.Utils.DataBase.PagesDesc
         /// Page's title
         /// </summary>       
         public String Title { get; set; }
+        [AllowHtml]
         /// <summary>
         /// Page's description
         /// </summary> 

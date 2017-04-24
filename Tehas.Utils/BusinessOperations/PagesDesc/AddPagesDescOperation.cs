@@ -50,20 +50,19 @@ namespace Tehas.Utils.BusinessOperations.PagesDesc
 
                             var path = HttpContext.Current.Server.MapPath(url);
                             imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
-                            int point = imageFile.FileName.LastIndexOf('.');
-                            var ext = imageFile.FileName.Substring(point);
-                            var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime() + ext;
+                            int point = imageFile.FileName.LastIndexOf('.');                            
+                            var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
 
                             ImageBuilder.Current.Build(
                                 new ImageJob(imageFile.InputStream,
                                 path + filename,
-                                new Instructions("maxwidth=1600&maxheight=1200"),
+                                new Instructions("maxwidth=1600&maxheight=1200&format=jpg&quality=80"),
                                 false,
-                                false));
+                                true));
 
                             var image = new Image
                             {
-                                FileName = filename,
+                                FileName = filename + ".jpg",
                                 Url = url,
                             };
                             Context.Images.Add(image);

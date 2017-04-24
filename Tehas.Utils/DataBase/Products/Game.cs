@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tehas.Utils.DataBase.Orders;
 
 namespace Tehas.Utils.DataBase.Products
 {
@@ -34,6 +35,7 @@ namespace Tehas.Utils.DataBase.Products
         public Int32? ParrentId { get; set; }
 
         public virtual Game Parrent { get; set; }
+        public virtual List<OrderGames> OrderGames { get; set; }
     }
 }
 

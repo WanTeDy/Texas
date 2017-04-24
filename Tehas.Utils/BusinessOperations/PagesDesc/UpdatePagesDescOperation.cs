@@ -1,6 +1,7 @@
 ﻿using ImageResizer;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using Tehas.Utils.DataBase.PagesDesc;
@@ -56,21 +57,23 @@ namespace Tehas.Utils.BusinessOperations.PagesDesc
                             var url = String.Format("~/Content/images/pages/{0}/{1}/", _pageDescription.ControllerName, _pageDescription.ActionName);
 
                             var path = HttpContext.Current.Server.MapPath(url);
+                            if (!Directory.Exists(path))
+                                Directory.CreateDirectory(path);
+
                             imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
                             int point = imageFile.FileName.LastIndexOf('.');
-                            var ext = imageFile.FileName.Substring(point);
-                            var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime() + ext;
+                            var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
 
                             ImageBuilder.Current.Build(
                                 new ImageJob(imageFile.InputStream,
                                 path + filename,
-                                new Instructions("maxwidth=1600&maxheight=1200"),
+                                new Instructions("maxwidth=1600&maxheight=1200&format=jpg&quality=80"),
                                 false,
-                                false));
+                                true));
 
                             var image = new Image
                             {
-                                FileName = filename,
+                                FileName = filename + ".jpg",
                                 Url = url,
                             };
                             Context.Images.Add(image);

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Tehas.Utils;
 
 namespace Tehas.Frontend
 {
@@ -16,6 +17,7 @@ namespace Tehas.Frontend
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ConstV.ServerLocalPath = Server.MapPath("~/Views/");
         }
     }
 }
