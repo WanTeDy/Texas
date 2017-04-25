@@ -3,11 +3,11 @@
 {
     <tr>
         <td id="del"><input type="checkbox" class="checkbox" id="checkbox" value="@prod.Id"/></td>
-        <td>@prod.Date</td>
+        <td>@prod.Date.ToShortDateString() / @prod.Date.ToShortTimeString()</td>
         <td>@prod.Username</td>
         <td>@prod.Message</td>
         <td>
-            Отобразить <input type="checkbox" class="checkbox" onclick="changeState(@prod.Id, this);"/>
+            Отобразить <input type="checkbox" class="checkbox" onclick="changeState(@prod.Id, this);" checked="@prod.IsModerated"/>
         </td>
         <td>
             <div class="edit_del">                
