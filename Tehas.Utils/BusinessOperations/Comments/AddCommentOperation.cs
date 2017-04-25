@@ -4,7 +4,7 @@ using System.Linq;
 using Tehas.Utils.DataBase.Emails;
 using Tehas.Utils.DataBase.Products;
 
-namespace Tehas.Utils.BusinessOperations.Emails
+namespace Tehas.Utils.BusinessOperations.Comments
 {
     public class AddCommentOperation : BaseOperation
     {

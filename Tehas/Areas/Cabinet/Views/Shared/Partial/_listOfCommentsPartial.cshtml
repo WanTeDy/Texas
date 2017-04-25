@@ -1,0 +1,20 @@
+﻿@model List<Tehas.Utils.DataBase.Emails.Comment>
+@foreach (var prod in Model)
+{
+    <tr>
+        <td id="del"><input type="checkbox" class="checkbox" id="checkbox" value="@prod.Id"/></td>
+        <td>@prod.Date</td>
+        <td>@prod.Username</td>
+        <td>@prod.Message</td>
+        <td>
+            Отобразить <input type="checkbox" class="checkbox" onclick="changeState(@prod.Id, this);"/>
+        </td>
+        <td>
+            <div class="edit_del">                
+                <button onclick="deleteProducts([@prod.Id])">Удалить</button>
+            </div>
+        </td>
+    </tr>
+}
+
+

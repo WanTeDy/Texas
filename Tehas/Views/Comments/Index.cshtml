@@ -1,6 +1,8 @@
 ﻿@using Tehas.Utils.DataBase.Emails;
 @model Comment
-
+@section Scripts {
+    @Scripts.Render("~/bundles/lazyload")
+}
 <div class="container" id="container">
     <div class="navigation_string">
         <div class="way">
@@ -39,7 +41,7 @@
 
         <div class="container">
             <div id="button-more" onclick="lazyloadComments();">
-                <a href="">Показать еще отзывы</a>
+                <a>Показать еще отзывы</a>
             </div>
             <div id="loading-div"></div>
         </div>

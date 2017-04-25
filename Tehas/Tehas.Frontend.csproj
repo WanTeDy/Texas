@@ -161,6 +161,7 @@
     <Compile Include="Areas\Cabinet\Controllers\ImageController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\MainController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\GameController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\CommentController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\MenuController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\PageController.cs" />
     <Compile Include="Areas\Cabinet\Models\ImageDeleteModel.cs" />
@@ -348,6 +349,8 @@
     <Content Include="Areas\Cabinet\Views\Game\List.cshtml" />
     <Content Include="Areas\Cabinet\Views\Shared\Partial\_gamePartial.cshtml" />
     <Content Include="Areas\Cabinet\Views\Shared\Partial\_listOfGamesPartial.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Comment\List.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\Partial\_listOfCommentsPartial.cshtml" />
     <None Include="Properties\PublishProfiles\smarter.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jcarousellite_1.0.1c5.js" />
@@ -422,7 +425,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3043</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

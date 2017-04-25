@@ -42,7 +42,7 @@ function lazyload(id) {
 function lazyloadComments() {
 
     obj = {
-        "PageNumber": page
+        "page": page
     }
 
     var json = JSON.stringify(obj);

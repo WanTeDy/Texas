@@ -1,35 +1,11 @@
-﻿@using Tehas.Frontend.Areas.Cabinet.Models
-@model List<Tehas.Utils.DataBase.Products.Game>
-@{
+﻿@{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
 @section Scripts {
     <script>
-        function getSortedProducts() {
-            var id = $('#category').val();
-            var obj = {
-                "Id": id
-            }
-
-            var json = JSON.stringify(obj);
-
-            $.ajax({
-                url: "/cabinet/menu/list",
-                type: "POST",
-                contentType: 'application/json; charset=utf-8',
-                data: json,
-                success: function (response) {
-                    $("table.added").html(response);
-                },
-                error: function (response) {
-                    //    $(loadingId).hide();
-                    //    $("<span>Извините, при обработке запроса произошла ошибка. Пожалуйста обновите страницу</span>").appendTo($(container));
-                }
-            });
-        }
-
+        
         function deleteChekedProducts() {
-            var elements = $('.checkbox:checked');
+            var elements = $('#del .checkbox:checked');
             var count = elements.length;
             if (count > 0) {
                 var values = elements.map(function () {
@@ -40,17 +16,15 @@
         }
 
         function deleteProducts(ids) {
-            if (confirm("Вы действительно хотите удалить продукты?")) {
-                var id = $('#category').val();
+            if (confirm("Вы действительно хотите удалить комментарии?")) {                
                 var obj = {
-                    "ProductsId": ids,
-                    "CategoryId": id
+                    "ProductsId": ids
                 }
 
                 var json = JSON.stringify(obj);
 
                 $.ajax({
-                    url: "/cabinet/menu/delete",
+                    url: "/cabinet/comment/delete",
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
                     data: json,
@@ -64,6 +38,31 @@
                 });
             }
         }
+        function changeState(id, element) {
+
+            var state = $(element).prop("checked");
+                    var obj = {
+                        "Id": id,
+                        "IsModerated" : state
+                    }
+
+                    var json = JSON.stringify(obj);
+
+                    $.ajax({
+                        url: "/cabinet/comment/changestate",
+                        type: "POST",
+                        contentType: 'application/json; charset=utf-8',
+                        data: json,
+                        success: function (response) {
+                        
+                        },
+                        error: function (response) {
+                            //    $(loadingId).hide();
+                            //    $("<span>Извините, при обработке запроса произошла ошибка. Пожалуйста обновите страницу</span>").appendTo($(container));
+                        }
+                    });
+            }
+
     </script>
 }
 
@@ -90,21 +89,20 @@
                     <li class="firstchild1"><a href="/Cabinet/Main" class="1">Главная</a></li>
                     <li><a class="1" href="/Cabinet/Page/List">Типовые страницы</a></li>
                     <li><a class="2" href="/Cabinet/Menu/List">Меню/Доставка</a></li>
-                    <li><a class="preActive active" href="/Cabinet/Game/List">Игры/Тарифы</a></li>
-                    <li><a class="2" href="/Cabinet/Comment/List">Комментарии</a></li>
+                    <li><a class="2" href="/Cabinet/Game/List">Игры/Тарифы</a></li>
+                    <li><a class="preActive active" href="/Cabinet/Comment/List">Комментарии</a></li>
                 </ul>
             </div>
 
             <div id="adminka3" class="tabset_content tabset_content_active">
                 <h2 class="tabset_label">adminka</h2>
 
-                <div class="headline">
-                    <h2>Игровые тарифы:</h2>
-                    
-                </div>
-                <div class="added">                   
+                <div class="added">
+                    <div class="buttons">                        
+                        <button class="delete_all" onclick="deleteChekedProducts();">Удалить выбранные</button>
+                    </div>
                     <table class="added">
-                        @Html.Partial("Partial/_listOfGamesPartial", Model)
+                        @Html.Partial("Partial/_listOfCommentsPartial", ViewBag.Comments as List<Tehas.Utils.DataBase.Emails.Comment>)
                     </table>
                 </div>
             </div>
