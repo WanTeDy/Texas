@@ -51,7 +51,10 @@ namespace Tehas.Frontend
                 //"~/Content/bootstrap.css",
                       "~/Content/style.css",
                       "~/Content/reset.css",
-                      "~/Content/jquery.fancybox.css",
+                      "~/Content/jquery.fancybox.css"
+                      ));
+
+            bundles.Add(new StyleBundle("~/Content/tabtastic").Include(                      
                       "~/Content/tabtastic.css"
                       ));
         }

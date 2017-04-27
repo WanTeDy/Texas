@@ -205,7 +205,7 @@ body {
     .navigation ol li a {
         color: #ffffff;
         font-family: "Decree Art One";
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
         text-transform: uppercase;
         list-style: none;
@@ -243,7 +243,7 @@ body {
 
     .textslide h2 {
         color: #cdb18f;
-        font-size: 62px;
+        font-size: 60px;
         font-family: inherit;
     }
 
@@ -275,7 +275,7 @@ body {
     }
 
     .advantages .h3 {
-        padding-top: 35px;
+        padding-top: 19px;
         padding-left: 910px;
     }
 
@@ -359,7 +359,7 @@ body {
             font-weight: bold;
             color: #231105;
             font-size: 48px;
-            line-height: 30px;
+            line-height: 40px;
             margin-bottom: 30px;
         }
 
@@ -489,7 +489,7 @@ body {
     max-width: 538px;
     border-bottom: 1px dashed #888888;
     margin-left: 159px;
-    margin-top: 93px;
+    margin-top: 25px;
 }
 
 .way {
@@ -608,6 +608,10 @@ body {
         font-weight: bold;
         line-height: 20px;
         margin-bottom: 42px;
+    }
+
+    .information_topic .comment p {
+        width: 1366px;
     }
 
 .list_of_prod table {
@@ -1019,21 +1023,45 @@ body {
         background: none;
     }
 
-    .textslide {
-	position: relative;
-}
-.textslide .tel_number {
-	    position: absolute;
-	    top: -153px;
-	    left: 750px;
-	    width: 210px;
-}
-.textslide .tel_number p {
-	color: white;
-	font-size: 15px;
-	font-family: Arial;
+    .form_comment .comment {
+        width: 1366px;
+    }
+
+.textslide {
+    position: relative;
 }
 
+    .textslide .tel_number {
+        position: absolute;
+        top: -153px;
+        left: 750px;
+        width: 210px;
+    }
+
+        .textslide .tel_number p {
+            color: white;
+            font-size: 15px;
+            font-family: Arial;
+        }
+
+.tel_number1 {
+    background-color: rgba(219, 177, 105, 0.6);
+    text-align: center;
+}
+
+    .tel_number1 p {
+        color: #231105;
+        font-size: 19px;
+        font-family: Arial;
+        font-weight: bold;
+        padding: 3px;
+    }
+
+.shtab {
+    position: absolute;
+    top: -145px;
+    left: -345px;
+}
 /*#toTop {
 	width:30px;
 	height: 30px;	
