@@ -13,10 +13,11 @@ namespace Tehas.Utils.DataBase.PagesDesc
         /// Page's title
         /// </summary>       
         public String Title { get; set; }
-        [AllowHtml]
+
         /// <summary>
         /// Page's description
         /// </summary> 
+        [AllowHtml]
         public String Description { get; set; }
         /// <summary>
         /// Page's video url
