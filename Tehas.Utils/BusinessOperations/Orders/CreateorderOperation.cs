@@ -116,7 +116,7 @@ namespace Tehas.Utils.BusinessOperations.Orders
             var body = SmtpEmailSender.GetHtmlRazor(model, SmtpEmailSender.FormatUrl("OrderMailView"));
 
 
-            mailSender.Send("pronina-a@mail.ru", "Новый заказ", body);
+            mailSender.Send("texacdostavka@gmail.com", "Новый заказ", body);
         }
     }
 }
