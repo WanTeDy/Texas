@@ -27,6 +27,7 @@ body a, button {
 	object-fit: cover;
 }
 #slidebox, #slidebox .listofimg {
+    min-width: 1366px;
 	width:100%;height:653px;
 	object-fit: cover;
 }
@@ -45,6 +46,7 @@ body a, button {
 	object-fit: cover !important;
 width:100%;
     height: 658px;
+    object-position: bottom;
 }
 #slidebox .next, #slidebox .previous {
 	position:absolute; 
@@ -197,6 +199,7 @@ width:100%;
 	text-decoration: none;
 	padding-right: 12px;
 	padding-left: 12px;
+    letter-spacing: 3px;
 }
 .navigation ol li a:hover {
 	padding-bottom: 9.5px;
@@ -214,15 +217,15 @@ width:100%;
 }
 
  .textslide {
- 	width: 612px;
- 	height: 265px;
- 	margin-top: 130px;
- 	margin-left: 375px;
- 	border-bottom: 1px solid white;
- 	font-family: "Decree Art One";
-	font-weight: bold;
-	text-align: center;
-	letter-spacing: 4px;
+     width: 700px;
+    height: 265px;
+    margin-top: 130px;
+    margin-left: 328px;
+    border-bottom: 1px solid #fff;
+    font-family: "Decree Art One";
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 6px;
  }
  .textslide h2 {
  	color: #cdb18f;
@@ -241,10 +244,11 @@ width:100%;
  }
  .advantages {
  	     background: url(images/streak2.png) no-repeat 0% 99.5%, url(images/bg_block2.jpg)no-repeat;
+    min-width: 1366px;
     width: 100%;
     height: 439px;
     margin: auto;
-    background-size: 100%;
+    background-size: 150%;
  }
  .advantages h3 {
  	color: #231105;
@@ -313,6 +317,7 @@ width:100%;
 	    -ms-flex-direction: row;
 	        flex-direction: row;
 	background-color: rgba(219, 177, 105, 0.6);
+    min-width: 1366px;
 }
 .in {
 	display: -webkit-flex;
@@ -338,7 +343,8 @@ width:100%;
 	color: #231105;
 	font-size: 48px;
 	line-height: 40px;
-	margin-bottom: 30px;
+	    margin-bottom: 20px;
+    letter-spacing: 3px;
 }
 .about_us .text p {
 	color: #252525;
@@ -978,17 +984,18 @@ margin-left: 48%;
 .textslide .tel_number {
 	    position: absolute;
 	    top: -153px;
-	    left: 750px;
-	    width: 210px;
+	        left: 751px;
+    width: 254px;
 }
 .textslide .tel_number p {
 	color: white;
-	font-size: 15px;
+	font-size: 17px;
 	font-family: Arial;
 }
 .tel_number1 {
 	      background-color: rgba(219, 177, 105, 0.6);
 	      text-align: center;
+    min-width: 1366px;
 	    
 }
 .tel_number1 p {
@@ -1004,5 +1011,10 @@ margin-left: 48%;
 	top: -145px;
     left: -345px;
 }
+
+
+
+
+
 
 
