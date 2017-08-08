@@ -24,7 +24,7 @@ namespace Tehas.Frontend
                         "~/Scripts/lazyload.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jcarousellite").Include(
-                        "~/Scripts/jcarousellite_1.0.1c5.js"));
+                        "~/Scripts/jcarousellite.js"));
             
             bundles.Add(new ScriptBundle("~/bundles/fancybox").Include(
                         "~/Scripts/jquery.easing.1.3.js",

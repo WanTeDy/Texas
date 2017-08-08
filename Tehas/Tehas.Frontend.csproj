@@ -354,6 +354,7 @@
     <Content Include="Areas\Cabinet\Views\Shared\Partial\_listOfCommentsPartial.cshtml" />
     <None Include="Properties\PublishProfiles\smarter.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jcarousellite.js" />
     <Content Include="Scripts\jcarousellite_1.0.1c5.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

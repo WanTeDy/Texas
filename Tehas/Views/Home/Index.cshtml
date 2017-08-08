@@ -17,7 +17,7 @@
     <!-- ГЛАВНЫЙ СЛАЙДЕР -->
 
     <script type="text/javascript">
-        $(function () {
+        function initialize_slider() {
             $('#slidebox').jCarouselLite({
                 vertical: false,
                 hoverPause: true,
@@ -29,6 +29,8 @@
                 circular: true,
                 auto: 6000,
                 speed: 900,
+                autoWidth: true,
+                responsive: true,
                 btnGo:
 				[".1", ".2",
 				".3", ".4"],
@@ -41,6 +43,10 @@
                     $(btnGo[to]).addClass("thumbActive");
                 }
             });
+        }
+
+        $(function () {
+            initialize_slider();
         });
     </script>
     <script>
@@ -121,7 +127,6 @@
                 foreach (var image in Model.Images)
                 {
                     <li style="width: 100%!important"><img src="@Url.Content(image.Url+image.FileName)" style="object-fit: cover;"></li>
-
                 }
             }
         </ul>
