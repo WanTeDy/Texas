@@ -23,12 +23,15 @@
                 hoverPause: true,
                 btnPrev: ".previous",
                 btnNext: ".next",
+                activeClass: 'thumbActive',
                 visible: 1,
                 start: 0,
                 scroll: 1,
                 circular: true,
-                auto: 6000,
+                auto: true,
+                timeout: 6000,
                 speed: 900,
+                //autoCSS: false,
                 autoWidth: true,
                 responsive: true,
                 btnGo:
@@ -39,14 +42,18 @@
                     if (btnGo.length <= to) {
                         to = 0;
                     }
-                    $(".thumbActive").removeClass("thumbActive");
-                    $(btnGo[to]).addClass("thumbActive");
+                    //$(".thumbActive").removeClass("thumbActive");
+                    //$(btnGo[to]).addClass("thumbActive");
                 }
             });
         }
 
         $(function () {
             initialize_slider();
+            $(window).resize(function () {
+                //$('#slidebox').trigger('endCarousel');
+
+            })
         });
     </script>
     <script>

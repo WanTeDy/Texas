@@ -82,7 +82,8 @@ width:100%;
 #slidebox .thumbs {
 	position:absolute; 
 	z-index:2; 
-	bottom:18px; 
+	top:620px;
+    bottom:18px; 
 	left:645.5px;
 	display: -webkit-flex;
 	display: -ms-flexbox;
